@@ -1,0 +1,68 @@
+<!--
+    Page for administrators to access their main services
+    such as store attendants, products and sale records 
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="../static/main.css" />
+    <link rel="shortcut icon" href="../images/icon.jpeg" type="image/png">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <header>
+        <div class="header">
+            <div class="nav-logo">
+                <label><a href="../home.html"><i class="fa fa-american-sign-language-interpreting"></i>&nbsp;StoreManager</a></label>
+            </div>
+            <div class="nav-menu">
+                <a href="../home.html" class="button">Home&nbsp;<i class="fa fa-home"></i></a>
+            </div>
+        </div>
+    </header>
+    <div class="dashboard">
+        <div class="dashboard-title">
+            <h1>Dashboard</h1>
+        </div>
+        <div class="dashboard-content">
+            <div>
+                <a href="manage_users.html">
+                    <i class="dash-image fa fa-users"></i>
+                    <p>23</p>
+                    <h1>Store Attendants</h1>
+                    <h2>View all store Attendants in the system and edit their details</h2>
+                </a>
+            </div>
+            <div>
+                <a href="manage_products.html">
+                    <i class="dash-image fa fa-shopping-bag"></i>
+                    <p>503</p>
+                    <h1>Products</h1>
+                    <h2>View all products in stock and update them</h2>
+                </a>
+            </div>
+            <div>
+                <a href="manage_records.html">
+                    <i class="dash-image fa fa-database"></i>
+                    <p>24</p>
+                    <h1>Records</h1>
+                    <h2>View all sales records, and manipulate them in any way!</h2>
+                </a>
+            </div>
+        </div>
+    </div>
+    <footer>
+        &copy;codeMarble
+    </footer>
+    <script src="../static/main.js"></script>
+</body>
+
+</html>

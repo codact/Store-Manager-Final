@@ -1,0 +1,183 @@
+<!--
+    Page for users to view their current sales records
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Records</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="static/main.css" />
+    <link rel="shortcut icon" href="images/icon.jpeg" type="image/png">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <header>
+        <div class="header">
+            <div class="nav-logo">
+                <label><a href="home.html"><i class="fa fa-american-sign-language-interpreting"></i>&nbsp;StoreManager</a></label>
+            </div>
+
+            <div class="nav-menu">
+                <ul>
+                    <li><a href="admin/dashboard.html">Admin&nbsp;<i class="fa fa-sign-in-alt"></i></a></li>
+                    <li><a href="home.html">Home&nbsp;<i class="fa fa-home"></i></a></li>
+                    <li><a href="records.html" class="current">Records&nbsp;<i class="fa fa-database"></i></a></li>
+                    <li><a href="user_profile.html">Profile&nbsp;<i class="fa fa-user"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="main-body">
+        <div class="description-modal" id="cart">
+            <div class="modal-content">
+                <div class="modal-title">
+                    <h1>Items <span class="close">&times;</span></h1>
+                </div>
+                <ol id="items">
+                    <br>
+                    <li>Fridge <span class="price"> Ksh. 2500 &nbsp;&nbsp;&nbsp;<span class="remove-item">x</span></li>
+                    <li>mobile phone <span class="price"> Ksh. 3500&nbsp;&nbsp;&nbsp;<span class="remove-item">x</span></span></li>
+                    <li>Microwave <span class="price"> Ksh. 10000&nbsp;&nbsp;&nbsp;<span class="remove-item">x</span></span></li><br>
+                </ol>
+                <hr><br>
+                Total<span class="price">Ksh. 6000</span><br>
+                <br><br>
+                <button class="button checkout-btn">Checkout</button>
+            </div>
+        </div>
+        <div class="search">
+            <input type="text" id="filter" placeholder="Search product" /><br><br>
+            <button class="cart-button" id="cart-icon" onclick="openCart()"><i class="fa fa-shopping-cart"></i></button>
+        </div>
+        <div class="records">
+            <h1>My Sales Records</h1>
+            <table class="records-table">
+                <tr>
+                    <th>
+                        Product
+                    </th>
+                    <th>
+                        Category
+                    </th>
+                    <th>
+                        Price
+                    </th>
+                    <th>
+                        Amount
+                    </th>
+
+                </tr>
+                <tr>
+                    <td>Microwave</td>
+                    <td>Electronics</td>
+                    <td>Sh.1000</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Microwave</td>
+                    <td>Electronics</td>
+                    <td>Sh.1000</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Microwave</td>
+                    <td>Electronics</td>
+                    <td>Sh.1000</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Microwave</td>
+                    <td>Electronics</td>
+                    <td>Sh.1000</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Microwave</td>
+                    <td>Electronics</td>
+                    <td>Sh.1000</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Microwave</td>
+                    <td>Electronics</td>
+                    <td>Sh.1000</td>
+                    <td>1</td>
+                </tr>
+
+                <tr>
+                    <td>Microwave</td>
+                    <td>Electronics</td>
+                    <td>Sh.1000</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Microwave</td>
+                    <td>Electronics</td>
+                    <td>Sh.1000</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Microwave</td>
+                    <td>Electronics</td>
+                    <td>Sh.1000</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Microwave</td>
+                    <td>Electronics</td>
+                    <td>Sh.1000</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Microwave</td>
+                    <td>Electronics</td>
+                    <td>Sh.1000</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Microwave</td>
+                    <td>Electronics</td>
+                    <td>Sh.1000</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Microwave</td>
+                    <td>Electronics</td>
+                    <td>Sh.1000</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Microwave</td>
+                    <td>Electronics</td>
+                    <td>Sh.1000</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Microwave</td>
+                    <td>Electronics</td>
+                    <td>Sh.1000</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Microwave</td>
+                    <td>Electronics</td>
+                    <td>Sh.1000</td>
+                    <td>1</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <footer>
+        &copy;codeMarble
+    </footer>
+    <script src="static/main.js"></script>
+</body>
+
+
+</html>
