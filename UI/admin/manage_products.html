@@ -1,0 +1,117 @@
+<!--
+    Page for administrators to modify existing products in the application
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Products | Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="../static/main.css" />
+    <link rel="shortcut icon" href="../images/icon.jpeg" type="image/png">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <header>
+        <div class="header">
+            <div class="nav-logo">
+                <label><a href="dashboard.html"><i class="fa fa-american-sign-language-interpreting"></i>&nbsp;StoreManager</a></label>
+            </div>
+            <div class="nav-menu">
+                <ul>
+                    <li><a href="dashboard.html">Dashboard&nbsp;<i class="fa fa-home"></i></a></li>
+                    <li><a href="manage_users.html">Attendants&nbsp;<i class="fa fa-user"></i></a></li>
+                    <li><a href="manage_products.html" class="current">Products&nbsp;<i class="fa fa-shopping-bag"></i></a></li>
+                    <li><a href="manage_records.html">Records&nbsp;<i class="fa fa-database"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="main-container">
+        <div class="product-menu">
+            <a href="dashboard.html"><i class="fa fa-arrow-left"></i></a>
+            <div class="prods">
+                <h1>Available products</h1>
+                <hr>
+                <table class="prods-table">
+                    <tr>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Description
+                        </th>
+                        <th>
+                            Amount in stock
+                        </th>
+                        <th>
+                            Price
+                        </th>
+                        <th>
+
+                        </th>
+                        <th>
+
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>Infinix</td>
+                        <td>Infinix is a great phone</td>
+                        <td>20</td>
+                        <td>12000</td>
+                        <td><button class="button"><i class="fa fa-edit"></i></button></td>
+                        <td><button class="button" onclick="deleted()"><i class="fa fa-trash"></i></button></td>
+                    </tr>
+                    <tr>
+                        <td>Tecno</td>
+                        <td>Close to greatness</td>
+                        <td>9</td>
+                        <td>2900</td>
+                        <td><button class="button"><i class="fa fa-edit"></i></button></td>
+                        <td><button class="button" onclick="deleted()"><i class="fa fa-trash"></i></button></td>
+                    </tr>
+                    <tr>
+                        <td>Samsung</td>
+                        <td>Some Korean phone with great features</td>
+                        <td>40</td>
+                        <td>102000</td>
+                        <td><button class="button"><i class="fa fa-edit"></i></button></td>
+                        <td><button class="button" onclick="deleted()"><i class="fa fa-trash"></i></button></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="product-section">
+            <form class="prod-form">
+                <br>
+                <span class="add">
+                    <a href="add_product.html" class="button">Add Product&nbsp;</a>
+                </span>
+                <br><br>
+                <p>Update Product</p>
+                <input type="text" required placeholder="Name"><br>
+                <input type="text" required placeholder="Description">
+                <input type="text" required placeholder="Amount in Stock"><br>
+                <input type="file">
+                <input type="text" required placeholder="Price"><br>
+                <select>
+                    <option selected>--Select Category--</option>
+                    <option value="electronics">Electronics</option>
+                    <option value="clothes">Clothes</option>
+                </select><br><br><br>
+                <a href="#" type="submit" class="button">Update</a><br><br><br>
+            </form>
+        </div>
+    </div>
+    <footer>
+        &copy;codeMarble
+    </footer>
+    <script src="../static/main.js"></script>
+</body>
+
+</html>
