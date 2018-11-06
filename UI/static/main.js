@@ -1,10 +1,61 @@
+'use-strict';
 
-const url = 'https://store-manager-app.herokuapp.com/api/v2';
+function DomManipulation(){}
+DomManipulation.prototype.init = function(){
+  const form = document.createElement('form');
+  const input = document.createElement('input')
+  input.id = "eml"
+  form.id="frm"
+  form.appendChild(input);
+  return {
+    form
+  }
+}
 
-    fetch(url)
+
+
+function createNode(element) {
+    return document.createElement(element);
+}
+
+function append(parent, el) {
+    return parent.appendChild(el);
+}
+
+const btn = document.getElementById("loginbtn");
+const p = document.getElementsByClassName('message')[0];
+const url = 'https://store-manager-app.herokuapp.com/api/v2/auth/login';
+
+btn.onclick = function () {
+    p.innerHTML = ''
+    var email = document.getElementById('eml').value;
+
+    var password = document.getElementById('pwd').value;
+
+    let data = JSON.stringify({
+        'email': email,
+        'password': password
+    })
+
+    // Create our request constructor with all the parameters we need
+    let request = new Request(url, {
+        method: 'POST',
+        body: data,
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+
+
+    fetch(request)
         .then((resp) => resp.json())
-        .then(function () {
-                window.location.href = 'index.html';    
+        .then(function (data) {
+            span = createNode('span');
+            span.innerHTML = `${data.message || data.Message}`;
+            append(p, span);
+            if (`${data.message}` == "Login success") {
+                window.location.href = 'home.html';
+            }
         })
         .catch(function (error) {
             console.log(error.message);
