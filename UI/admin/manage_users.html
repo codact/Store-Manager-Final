@@ -1,0 +1,122 @@
+<!--
+    Page for administrators to modify and grant admin permissions to users in the system
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Attendants | Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="../static/main.css" />
+    <link rel="shortcut icon" href="../images/icon.jpeg" type="image/png">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <header>
+        <div class="header">
+            <div class="nav-logo">
+                <label><a href="dashboard.html"><i class="fa fa-american-sign-language-interpreting"></i>&nbsp;StoreManager</a></label>
+            </div>
+            <div class="nav-menu">
+                <ul>
+                    <li><a href="dashboard.html">Dashboard&nbsp;<i class="fa fa-home"></i></a></li>
+                    <li><a href="manage_users.html" class="current">Attendants&nbsp;<i class="fa fa-user"></i></a></li>
+                    <li><a href="manage_products.html">Products&nbsp;<i class="fa fa-shopping-bag"></i></a></li>
+                    <li><a href="manage_records.html">Records&nbsp;<i class="fa fa-database"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="main-container">
+        <div class="user-menu">
+            <a href="dashboard.html"><i class="fa fa-arrow-left"></i></a>
+            <div class="users">
+                <h1>Store Attendants</h1>
+                <table class="users-table">
+                    <tr>
+                        <th>
+                            Full Names
+                        </th>
+                        <th>
+                            Email
+                        </th>
+                        <th>
+                            Phone Number
+                        </th>
+                        <th>
+                            Address
+                        </th>
+                        <th>
+                            Role
+                        </th>
+                        <th>
+
+                        </th>
+                        <th>
+
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>James Savali</td>
+                        <td>james@gmail.com</td>
+                        <td>0708197333</td>
+                        <td>Roy Sambu</td>
+                        <td>Owner</td>
+                        <td><button class="button"><i class="fa fa-edit"></i></button></td>
+                        <td><button class="button" onclick="deleted()"><i class="fa fa-trash"></i></button></td>
+                    </tr>
+                    <tr>
+                        <td>Mary Wanjiru</td>
+                        <td>mary@gmail.com</td>
+                        <td>0708197010</td>
+                        <td>Rongai</td>
+                        <td>Attendant</td>
+                        <td><button class="button"><i class="fa fa-edit"></i></button></td>
+                        <td><button class="button" onclick="deleted()"><i class="fa fa-trash"></i></button></td>
+                    </tr>
+                    <tr>
+                        <td>Joseph</td>
+                        <td>js@gmail.com</td>
+                        <td>0702908374</td>
+                        <td>Machakos</td>
+                        <td>Attendant</td>
+                        <td><button class="button"><i class="fa fa-edit"></i></button></td>
+                        <td><button class="button" onclick="deleted()"><i class="fa fa-trash"></i></button></td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+        <div class="signup-section">
+            <form class="signup-form">
+                <br>
+                <span class="add">
+                    <a href="add_user.html" class="button">Add User&nbsp;</a>
+                </span>
+                <br>
+                <h1>Update User
+                </h1>
+                <input name="name" type="text" required placeholder="Full Name"><br>
+                <input type="email" required placeholder="Email">
+                <input type="text" required placeholder="Phone Number"><br>
+                <input name="address" type="text" required placeholder="Address"><br>
+                <select multiple size=1>
+                    <option value="admin">Owner</option>
+                    <option value="attendant">Attendant</option>
+                </select><br><br><br>
+                <a href="#" type="submit" class="button">Update</a><br><br><br>
+            </form>
+        </div>
+    </div>
+    <footer>
+        &copy;codeMarble
+    </footer>
+    <script src="../static/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!--
+    Page for administrators to add new products to the application
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Add Product | Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="../static/main.css" />
+    <link rel="shortcut icon" href="../images/icon.jpeg" type="image/png">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <header>
+        <div class="header">
+            <div class="nav-logo">
+                <label><a href="dashboard.html"><i class="fa fa-american-sign-language-interpreting"></i>&nbsp;StoreManager</a></label>
+            </div>
+            <div class="nav-menu">
+                <ul>
+                    <li><a href="dashboard.html">Dashboard&nbsp;<i class="fa fa-home"></i></a></li>
+                    <li><a href="manage_users.html">Attendants&nbsp;<i class="fa fa-user"></i></a></li>
+                    <li><a href="manage_products.html" class="current">Products&nbsp;<i class="fa fa-shopping-bag"></i></a></li>
+                    <li><a href="manage_records.html">Records&nbsp;<i class="fa fa-database"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="main-container">
+        <div class="product-menu">
+            <a href="manage_products.html"><i class="fa fa-arrow-left"></i></a>
+            <h1>Product Registration panel &nbsp;
+                <i class="fa fa-database"></i></h1>
+            <h2>You can add a product by entering its details
+                on the right hand side <br>panel. Welcome Lorem ipsum
+                dolor sit amet consectetur adipisicing <br>elit. Inventore
+                magni itaque assumenda architecto<br> cum quo doloremque
+                similique omnis mollitia obcaecati dolorum dignissimos,<br>
+                hic quia tempora animi? Nobis molestias quisquam inventore?</h2>
+        </div>
+        <div class="product-section">
+            <form class="prod-form">
+                <h1>Create</h1><br>
+                <input type="text" required placeholder="Name"><br>
+                <input type="text" required placeholder="Description">
+                <input type="number" required placeholder="Amount in stock"><br>
+                <input type="file" class="file">
+                <input type="number" required placeholder="Price"><br>
+                <select>
+                    <option selected>--Select Category--</option>
+                    <option value="electronics">Electronics</option>
+                    <option value="clothes">Clothes</option>
+                </select><br><br><br>
+                <a href="#" type="submit" class="button">Create</a><br><br><br>
+            </form>
+        </div>
+    </div>
+    <footer>
+        &copy;codeMarble
+    </footer>
+    <script src="../static/main.js"></script>
+</body>
+
+</html>
