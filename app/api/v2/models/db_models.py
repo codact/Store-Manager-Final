@@ -15,16 +15,18 @@ class Db(object):
         try:
             if 'pytest' in modules:
                 URL = os.getenv("TEST_DB_URL")
-            elif os.getenv("APP_SETTINGS") == "development":
+            if os.getenv("APP_SETTINGS") == "development":
                 URL = os.getenv("DB_URL")
-            else:
-                URL = os.environ['DATABASE_URL'], sslmode = 'require'
             self.conn = psycopg2.connect(database=URL)
-        except Exception:
-            pass
+        except Exception as e:
+            if os.getenv("APP_SETTINGS") == "production":
+                URL = os.environ['DATABASE_URL'], sslmode = 'require'
+                self.conn = psycopg2.connect(URL)
+            else:
+                print(e)
+                return jsonify({"message":"An error occurred during connection"})
         self.conn.autocommit = True
         return self.conn
-
     def closeConnection(self):
         '''method to close connections'''
         return self.conn.close()
