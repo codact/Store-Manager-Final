@@ -7,9 +7,6 @@ Import for google fonts
 /*
 Styling for general html tages
 */
-.message {
-    color: red;
-}
 a {
     text-decoration: none;
     color: teal;
@@ -684,6 +681,11 @@ Styling for display on devices less than 1100px width
     footer {
         display: none;
     }
+}
+
+
+.message {
+    color: red;
 }
 
 /* 
