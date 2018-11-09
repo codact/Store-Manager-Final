@@ -41,11 +41,11 @@ h2 {
 
 p,
 h2 {
-    text-shadow: 1px 1px 10px #000;
+    text-shadow: 1px 1px 10px #fff;
     font-size: 100%;
     padding: 2%;
     line-height: 25px;
-    color: #fff;
+    color: rgb(60, 119, 87);
     font-family: 'Ubuntu', sans-serif;
 }
 
@@ -141,21 +141,14 @@ Styling for body divs
     padding: 4%;
 
 }
-.product-section {
-    margin-top: -5%;
-}
 
 .main-container {
     margin-top: -10%;
 }
-
-.add {
-    float: right;
-}
-
 .signup-form,
 .login-form,
-.prod-form {
+.prod-form,
+.update-form{
     width: 70%;
     text-align: center;
     margin: auto;
@@ -171,11 +164,19 @@ Styling for body divs
     width: 100%;
     margin: auto;
     margin-top: -15%;
+    display: none;
 }
-
+.prod-form, .update-form {
+    padding: 2%;
+    width: 100%;
+    margin: auto;
+    margin-top:-20%;
+    display: none;
+}
 .signup-form input,
 .login-form input,
-.prod-form input {
+.prod-form input,
+.update-form input {
     border: none;
     border-bottom: solid 1px silver;
     margin-bottom: 12%;
@@ -183,28 +184,31 @@ Styling for body divs
     padding-top: 4%;
     font-size: 90%;
 }
+.update-form input {
+    border: none;
+    border-bottom: solid 1px silver;
+    margin-bottom: 6%;
+    width: 80%;
+    padding-top: 1%;
+    font-size: 90%;
+}
 
-.signup-form input,
 .prod-form input {
-    width: 30%;
     padding-top: 2%;
     font-size: 90%;
     margin-bottom: 5%;
     margin-right: 5%;
 }
-
-.prod-form input {
+.signup-form input{
     width: 70%;
-}
-
-.signup-form input[name="name"],
-.signup-form input[name="address"] {
-    width: 65%;
+    margin-bottom: 2%;
+    margin-right: 2%;
 }
 
 .signup-form input:focus,
 .login-form input:focus,
-.prod-form input:focus {
+.prod-form input:focus,
+.update-form input:focus {
     outline: none;
     border-bottom: solid 1px teal;
 }
@@ -297,7 +301,7 @@ Styling for body divs
 .user-menu,
 .product-menu {
     margin-top: -2%;
-    width: 66%;
+    width: 100%;
     height: 350px;
     padding: 3%;
     border-radius: 7px;
@@ -372,14 +376,16 @@ Styling for body divs
 }
 
 .records-table,
-.users-table {
+.users-table,
+.prods-table {
     padding: 1% 2%;
     width: 100%;
     margin: auto;
 }
 
 .records-table tr td,
-.users-table tr td {
+.users-table tr td,
+.prods-table tr td {
     text-align: center;
     border: solid 1px white;
     padding: 0.8%;
@@ -466,10 +472,9 @@ Styling for button
 .button:hover,
 .button-facebook:hover,
 .button-google:hover {
-    background: #fff;
-    color: teal;
-    border: solid 1px teal;
-    transition: background 0.4s ease-in-out;
+    background: rgb(32, 32, 32);
+    color: rgb(247, 255, 255);
+    transition: background 0.2s ease-in-out;
 }
 
 .btn {
@@ -517,7 +522,7 @@ styling for modals
     width: 100%;
     height: 100%;
     overflow-y: hidden;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 .modal-content {
@@ -564,6 +569,17 @@ styling for modals
     cursor: pointer;
 }
 
+.add {
+    float: left;
+    width: 20%;
+    border-right: solid 1px silver;
+    padding-right: 1%;
+    margin: 0% 1%;
+}
+.add button{
+    width: 90%;
+}
+
 /* 
 Styling for display on devices less than 1100px width 
 */
@@ -585,7 +601,8 @@ Styling for display on devices less than 1100px width
     }
 
     .signup-form,
-    .prod-form {
+    .prod-form,
+    .update-form{
         margin-top: 0%;
     }
 
@@ -596,7 +613,9 @@ Styling for display on devices less than 1100px width
     .prod-section {
         width: 700px;
         margin: auto;
+        display: none;
     }
+   
 
     .search input {
         width: 50%;
@@ -644,7 +663,8 @@ Styling for display on devices less than 1100px width
 
     .login-form,
     .signup-form,
-    .prod-form {
+    .prod-form,
+    .update-form{
         min-width: 250px;
         width: 80%;
         margin: auto;

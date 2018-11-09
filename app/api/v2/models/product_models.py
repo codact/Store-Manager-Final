@@ -29,26 +29,23 @@ class Product_Model(Db):
         row = self.cursor.fetchone()
         self.id = row[0]
 
-    def update(self, productId, title, category, price, quantity, minimum_stock, description):
+    def update(self, productId):
         '''Method is meant to update a product by editing its details in the
         products table'''
-        self.db = Db()
-        self.conn = self.db.createConnection()
-        self.db.createTables()
-        self.cursor = self.conn.cursor()
+        self.productId = productId
         self.cursor.execute("SELECT id FROM products WHERE title = %s",
-                            (title,))
+                            (self.data["title"],))
         row = self.cursor.fetchone()
         self.date = datetime.datetime.now()
-        if not row or row[0] == productId:
+        if not row or row[0] == self.productId:
             try:
                 self.cursor.execute(
                     """UPDATE products SET title = %s, category = %s, price = %s,
                         quantity = %s, minimum_stock = %s, description = %s, date = %s
                         where title = %s
                         """,
-                    (title, category, price, quantity,
-                     minimum_stock, description, self.date, title)
+                    (self.data["title"], self.data["category"], self.data["price"], self.data["quantity"],
+                     self.data["minimum_stock"], self.data["description"], self.date, self.data["title"])
                 )
             except Exception as e:
                 print(e)
