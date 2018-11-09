@@ -77,7 +77,7 @@ class SignUp(Resource):
                 return make_response(jsonify({
                     "message": "Admin can either be true/t or false/f"
                 }))
-            elif admin not in ["true", "t"]:
+            elif admin not in ["true", "True", "T", "t"]:
                 admin = False
             user = User_Model(email, password, admin)
             user.save()
@@ -123,8 +123,7 @@ class UpdateUser(Resource):
                     if not user["admin"]:
                         item.update(userId)
                         response = make_response(jsonify({
-                            "Message": "User updated to:",
-                            "Role": "Admin"
+                            "Message": "User updated to Administrator"
                         }), 201)
                     else:
                         response = make_response(jsonify({
@@ -136,6 +135,20 @@ class UpdateUser(Resource):
             "Message": "Must be admin"
         }), 401)
 
+
+class GetUsers(Resource):
+    @token_required
+    def get(current_user, self):
+        if not current_user["admin"]:
+            return make_response(jsonify({
+            "Message": "Must be admin"
+        }), 401)
+        item = User_Model()
+        users = item.get()
+        return make_response(jsonify({
+            "Message": "Success",
+            "Users": users
+        }), 401)
 
 class Login(Resource):
     '''Login endpoint'''
@@ -161,7 +174,7 @@ class Login(Resource):
                                                               password):
                 token = jwt.encode({"email": email, "password": password,
                                     'exp': datetime.datetime.utcnow() +
-                                    datetime.timedelta(minutes=30)},
+                                    datetime.timedelta(minutes=180)},
                                    app_config["development"].SECRET_KEY, algorithm='HS256')
                 return make_response(jsonify({
                     "message": "Login success",
@@ -255,37 +268,32 @@ class OneProduct(Resource):
             return make_response(jsonify({
                 "Message": "Please, provide the product's details"
             }), 403)
-        valid = Validator_products(data)
         product = Product_Model(data)
         products = product.get()
-        for product in products:
-            if len(products) == 0:
-                return make_response(jsonify({
-                    "Message": "No products yet"
-                }), 404)
-            if product["id"] == int(productId):
-                if "title" not in data:
-                    data["title"] = product["title"]
-                if "category" not in data:
-                    data["category"] = product["category"]
-                if "price" not in data:
-                    data["price"] = product["price"]
-                if "quantity" not in data:
-                    data["quantity"] = product["quantity"]
-                if "minimum_stock" not in data:
-                    data["minimum_stock"] = product["minimum_stock"]
-                if "description" not in data:
-                    data["description"] = product["description"]
-
-                product_obj = Product_Model.update(self, productId, data["title"], data["category"], data["price"],
-                                                   data["quantity"], data["minimum_stock"], data["description"])
+        found = [prod for prod in products if prod["id"] == int(productId)]
+        if not found:
             return make_response(jsonify({
-                "Message": "Successfully updated",
-                "Products": product
-            }), 200)
-        return make_response(jsonify({
-            "Message": "Product non-existent"
-        }), 404)
+                "Message": "Product non-existent"
+            }), 404)
+        
+        if len(products) == 0:
+            return make_response(jsonify({
+                "Message": "No products yet"
+            }), 404)
+        valid = Validator_products(data)
+        valid.validate_missing_data()
+        valid.validate_data_types()
+        valid.validate_negations()
+        data2 = valid.strip_spaces()
+        product = Product_Model(data2)
+        product.update(productId)
+        prods = Product_Model().get()
+        for prod in prods:
+            if prod['id'] == productId:
+                return make_response(jsonify({
+                    "Message": "Successfully updated",
+                    "Products": prod
+                }), 200)
 
     @token_required
     def delete(current_user, self, productId):

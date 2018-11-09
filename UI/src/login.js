@@ -6,7 +6,7 @@ function loginUser(e) {
 
     let email = document.getElementById('eml').value;
     let password = document.getElementById('pwd').value;
-    let message = document.getElementsByClassName("message")[0]
+    let message = document.getElementsByClassName("message")[0];
 
     e.preventDefault();
 
@@ -27,7 +27,7 @@ function loginUser(e) {
             message.innerHTML =
                 `<p>${data.message || data.Message}</p>`
             if (data.message == 'Login success') {
-                localStorage.setItem("token", data.token)
+                localStorage.setItem("token", data.token);
                 window.location.replace('home.html');
                 return true
             }

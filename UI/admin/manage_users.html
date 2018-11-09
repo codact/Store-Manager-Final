@@ -28,95 +28,53 @@
                     <li><a href="manage_users.html" class="current">Attendants&nbsp;<i class="fa fa-user"></i></a></li>
                     <li><a href="manage_products.html">Products&nbsp;<i class="fa fa-shopping-bag"></i></a></li>
                     <li><a href="manage_records.html">Records&nbsp;<i class="fa fa-database"></i></a></li>
+                    <li><a href="../index.html">Logout&nbsp;<i class="fa fa-user"></i></a></li>
                 </ul>
             </div>
         </div>
     </header>
+
     <div class="main-container">
-        <div class="user-menu">
+        <div class="add">
+            <button id="signup" onclick="openSignupForm()" class="button">Add User&nbsp;</button>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                 Non impedit omnis libero nostrum vitae debitis tempore 
+                 eos obcaecati dignissimos, ex ad 
+                dicta magnam odio possimus reprehenderit corporis dolorem tempora quia.
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet,
+                 quae dicta
+            </p>
+        </div>
+        <div class="user-menu" id="usermenu">
             <a href="dashboard.html"><i class="fa fa-arrow-left"></i></a>
             <div class="users">
                 <h1>Store Attendants</h1>
-                <table class="users-table">
-                    <tr>
-                        <th>
-                            Full Names
-                        </th>
-                        <th>
-                            Email
-                        </th>
-                        <th>
-                            Phone Number
-                        </th>
-                        <th>
-                            Address
-                        </th>
-                        <th>
-                            Role
-                        </th>
-                        <th>
-
-                        </th>
-                        <th>
-
-                        </th>
-                    </tr>
-                    <tr>
-                        <td>James Savali</td>
-                        <td>james@gmail.com</td>
-                        <td>0708197333</td>
-                        <td>Roy Sambu</td>
-                        <td>Owner</td>
-                        <td><button class="button"><i class="fa fa-edit"></i></button></td>
-                        <td><button class="button" onclick="deleted()"><i class="fa fa-trash"></i></button></td>
-                    </tr>
-                    <tr>
-                        <td>Mary Wanjiru</td>
-                        <td>mary@gmail.com</td>
-                        <td>0708197010</td>
-                        <td>Rongai</td>
-                        <td>Attendant</td>
-                        <td><button class="button"><i class="fa fa-edit"></i></button></td>
-                        <td><button class="button" onclick="deleted()"><i class="fa fa-trash"></i></button></td>
-                    </tr>
-                    <tr>
-                        <td>Joseph</td>
-                        <td>js@gmail.com</td>
-                        <td>0702908374</td>
-                        <td>Machakos</td>
-                        <td>Attendant</td>
-                        <td><button class="button"><i class="fa fa-edit"></i></button></td>
-                        <td><button class="button" onclick="deleted()"><i class="fa fa-trash"></i></button></td>
-                    </tr>
+                <table id="usersrows" class="users-table">
 
                 </table>
             </div>
         </div>
+
         <div class="signup-section">
-            <form class="signup-form">
-                <br>
-                <span class="add">
-                    <a href="add_user.html" class="button">Add User&nbsp;</a>
-                </span>
-                <br>
-                <h1>Update User
-                </h1>
-                <input name="name" type="text" required placeholder="Full Name"><br>
-                <input type="email" required placeholder="Email">
-                <input type="text" required placeholder="Phone Number"><br>
-                <input name="address" type="text" required placeholder="Address"><br>
-                <select multiple size=1>
-                    <option value="admin">Owner</option>
-                    <option value="attendant">Attendant</option>
+            <form class="signup-form" id="signupfrm">
+                <h1>Register Here</h1>
+                <div id="message"></div><br>
+                <input id="email" type="text" placeholder="Email"><br>
+                <input id="password" type="password" placeholder="Password"><br>
+                <input id="password2" type="password" placeholder="Re-enter Password"><br>
+                <select id="role">
+                    <option selected disabled>--Is user ADMIN?--</option>
+                    <option>true</option>
+                    <option>false</option>
                 </select><br><br><br>
-                <a href="#" type="submit" class="button">Update</a><br><br><br>
+                <button type="submit" class="button">SignUp</button><br><br><br>
             </form>
         </div>
     </div>
     <footer>
         &copy;codeMarble
     </footer>
-    <script src="../src/main.js"></script>
+    <script src="../src/users.js"></script>
 </body>
 
 </html>
