@@ -51,35 +51,7 @@
                 <button class="button checkout-btn">Checkout</button>
             </div>
         </div>
-        <div class="description-modal" id="description">
-            <div class="modal-content">
-                <div class="modal-title">
-                    <h1>Description <span class="close-btn">&times;</span></h1>
-                </div>
-                <div class="container">
-                    <div class="pic">
-                        <img class="product-image" src="images/product1.jpg" />
-                    </div>
-                    <div class="detail">
-                        <table>
-                            <tr>
-                                <td>Functionality: </td>
-                                <td>Exceptional</td>
-                            </tr>
-                            <tr>
-                                <td>Quantity: </td>
-                                <td><i class="fa fa-barcode"></i> 30</td>
-                            </tr>
-                            <tr>
-                                <td>Minimum quantity:</td>
-                                <td><i class="fa fa-barcode"></i>20</td>
-                            </tr>
-                        </table><br><br><br>
-                        <button class="button" onclick="added()">Proceed&nbsp;<i class="fa fa-cart-plus"></i></button>
-                    </div>
-                </div>
-            </div>
-        </div>
+
 
         <div class="search">
             <input type="text" id="filter" placeholder="Search product" /><br><br>
@@ -91,10 +63,10 @@
                 <h2>Categories</h2>
                 <ul>
                     <li>
-                        <a href="#clothes">All</a>
+                        <a href="#" id="all">All</a>
                     </li>
                     <li>
-                        <a href="#clothes">Clothes</a>
+                        <a href="#clothes" id="clothes">Clothes</a>
                     </li>
                     <li>
                         <a href="#furniture">Furniture</a>
@@ -126,243 +98,21 @@
                     </ul>
                 </div>
             </div>
-            <div class="products">
-                <div id="clothes">
-                    <h1 class="specific-cat">Clothes</h1>
-                    <div class="product">
-                        <img class="product-image" src="images/product1.jpg" alt="product1" />
-                        <h5 id="item-title">Infinix Hot 2 Ksh. 2500</h5>
-                        <button class="button" onclick="openModal()">Add&nbsp;<i class="fa fa-cart-plus"></i></button>
-                    </div>
-                    <div class="product">
-                        <img class="product-image" src="images/product2.jpg" alt="product1" />
-                        <h5 id="item-title">Infinix Hot 2 Ksh. 2500</h5>
-                        <button class="button" onclick="openModal()">Add&nbsp;<i class="fa fa-cart-plus"></i></button>
-                    </div>
-                    <div class="product">
-                        <img class="product-image" src="images/product3.jpg" alt="product1" />
-                        <h5 id="item-title">Infinix Hot 2 Ksh. 2500</h5>
-                        <button class="button" onclick="openModal()">Add&nbsp;<i class="fa fa-cart-plus"></i></button>
-                    </div>
-                    <div class="product">
-                        <img class="product-image" src="images/product4.jpg" alt="product1" />
-                        <h5>Ramtons fridge<br> Ksh. 25000</h5>
-                        <button class="button" onclick="openModal()">Add&nbsp;<i class="fa fa-cart-plus"></i></button>
-                    </div>
-                    <div class="product">
-                        <img class="product-image" src="images/product1.jpg" alt="product1" />
-                        <h5 id="item-title">Infinix Hot 2 Ksh. 2500</h5>
-                        <button class="button" onclick="openModal()">Add&nbsp;<i class="fa fa-cart-plus"></i></button>
-                    </div>
-                    <div class="product">
-                        <img class="product-image" src="images/product2.jpg" alt="product1" />
-                        <h5 id="item-title">Infinix Hot 2 Ksh. 2500</h5>
-                        <button class="button" onclick="openModal()">Add&nbsp;<i class="fa fa-cart-plus"></i></button>
-                    </div>
-                    <div class="product">
-                        <img class="product-image" src="images/product3.jpg" alt="product1" />
-                        <h5 id="item-title">Infinix Hot 2 Ksh. 2500</h5>
-                        <button class="button" onclick="openModal()">Add&nbsp;<i class="fa fa-cart-plus"></i></button>
 
-                    </div>
-                    <div class="product">
-                        <img class="product-image" src="images/product4.jpg" alt="product1" />
-                        <h5>Ramtons fridge<br> Ksh. 25000</h5>
-                        <button class="button" onclick="openModal()">Add&nbsp;<i class="fa fa-cart-plus"></i></button>
-                    </div>
-                </div>
-                <div id="furniture">
-                    <h1 class="specific-cat">Furniture</h1>
-                    <div class="product">
-                        <img class="product-image" src="images/product1.jpg" alt="product1" />
-                        <h5 id="item-title">Infinix Hot 2 Ksh. 2500</h5>
-                        <button class="button" onclick="openModal()">Add&nbsp;<i class="fa fa-cart-plus"></i></button>
-                    </div>
-                    <div class="product">
-                        <img class="product-image" src="images/product2.jpg" alt="product1" />
-                        <h5 id="item-title">Infinix Hot 2 Ksh. 2500</h5>
-                        <button class="button" onclick="openModal()">Add&nbsp;<i class="fa fa-cart-plus"></i></button>
-                    </div>
-                    <div class="product">
-                        <img class="product-image" src="images/product3.jpg" alt="product1" />
-                        <h5 id="item-title">Infinix Hot 2 Ksh. 2500</h5>
-                        <button class="button" onclick="openModal()">Add&nbsp;<i class="fa fa-cart-plus"></i></button>
-                    </div>
-                    <div class="product">
-                        <img class="product-image" src="images/product4.jpg" alt="product1" />
-                        <h5>Ramtons fridge<br> Ksh. 25000</h5>
-                        <button class="button" onclick="openModal()">Add&nbsp;<i class="fa fa-cart-plus"></i></button>
-                    </div>
-                    <div class="product">
-                        <img class="product-image" src="images/product5.jpg" alt="product1" />
-                        <h5>Ramtons fridge<br> Ksh. 25000</h5>
-                        <button class="button" onclick="openModal()">Add&nbsp;<i class="fa fa-cart-plus"></i></button>
-                    </div>
-                    <div class="product">
-                        <img class="product-image" src="images/product6.jpg" alt="product1" />
-                        <h5>Ramtons fridge<br> Ksh. 25000</h5>
-                        <button class="button" onclick="openModal()">Add&nbsp;<i class="fa fa-cart-plus"></i></button>
-                    </div>
-                </div>
-                <div id="electronics">
-                    <h1 class="specific-cat">Electronics</h1>
-                    <div class="product">
-                        <img class="product-image" src="images/product1.jpg" alt="product1" />
-                        <h5 id="item-title">Infinix Hot 2 Ksh. 2500</h5>
-                        <button class="button" onclick="openModal()">Add&nbsp;<i class="fa fa-cart-plus"></i></button>
-                    </div>
-                    <div class="product">
-                        <img class="product-image" src="images/product2.jpg" alt="product1" />
-                        <h5 id="item-title">Infinix Hot 2 Ksh. 2500</h5>
-                        <button class="button" onclick="openModal()">Add&nbsp;<i class="fa fa-cart-plus"></i></button>
-                    </div>
-                    <div class="product">
-                        <img class="product-image" src="images/product3.jpg" alt="product1" />
-                        <h5 id="item-title">Infinix Hot 2 Ksh. 2500</h5>
-                        <button class="button" onclick="openModal()">Add&nbsp;<i class="fa fa-cart-plus"></i></button>
-                    </div>
-                    <div class="product">
-                        <img class="product-image" src="images/product4.jpg" alt="product1" />
-                        <h5>Ramtons fridge<br> Ksh. 25000</h5>
-                        <button class="button" onclick="openModal()">Add&nbsp;<i class="fa fa-cart-plus"></i></button>
-                    </div>
-                    <div class="product">
-                        <img class="product-image" src="images/product7.jpg" alt="product1" />
-                        <h5>Ramtons fridge<br> Ksh. 25000</h5>
-                        <button class="button" onclick="openModal()">Add&nbsp;<i class="fa fa-cart-plus"></i></button>
-                    </div>
-                    <div class="product">
-                        <img class="product-image" src="images/product8.jpg" alt="product1" />
-                        <h5>Ramtons fridge<br> Ksh. 25000</h5>
-                        <button class="button" onclick="openModal()">Add&nbsp;<i class="fa fa-cart-plus"></i></button>
-                    </div>
-                    <div class="product">
-                        <img class="product-image" src="images/product9.jpg" alt="product1" />
-                        <h5>Ramtons fridge<br> Ksh. 25000</h5>
-                        <button class="button" onclick="openModal()">Add&nbsp;<i class="fa fa-cart-plus"></i></button>
-                    </div>
-                    <div class="product">
-                        <img class="product-image" src="images/product10.jpg" alt="product1" />
-                        <h5>Ramtons fridge<br> Ksh. 25000</h5>
-                        <button class="button" onclick="openModal()">Add&nbsp;<i class="fa fa-cart-plus"></i></button>
-                    </div>
-                    <div class="product">
-                        <img class="product-image" src="images/product11.jpg" alt="product1" />
-                        <h5>Ramtons fridge<br> Ksh. 25000</h5>
-                        <button class="button" onclick="openModal()">Add&nbsp;<i class="fa fa-cart-plus"></i></button>
-                    </div>
-                    <div class="product">
-                        <img class="product-image" src="images/product12.jpg" alt="product1" />
-                        <h5>Ramtons fridge<br> Ksh. 25000</h5>
-                        <button class="button" onclick="openModal()">Add&nbsp;<i class="fa fa-cart-plus"></i></button>
-                    </div>
-                    <div class="product">
-                        <img class="product-image" src="images/product13.jpg" alt="product1" />
-                        <h5>Ramtons fridge<br> Ksh. 25000</h5>
-                        <button class="button" onclick="openModal()">Add&nbsp;<i class="fa fa-cart-plus"></i></button>
-                    </div>
-                </div>
-                <div id="cars">
-                    <h1 class="specific-cat">Cars</h1>
-                    <div class="product">
-                        <img class="product-image" src="images/product8.jpg" alt="product1" />
-                        <h5>Ramtons fridge<br> Ksh. 25000</h5>
-                        <button class="button" onclick="openModal()">Add&nbsp;<i class="fa fa-cart-plus"></i></button>
-                    </div>
-                    <div class="product">
-                        <img class="product-image" src="images/product1.jpg" alt="product1" />
-                        <h5>Ramtons fridge<br> Ksh. 25000</h5>
-                        <button class="button" onclick="openModal()">Add&nbsp;<i class="fa fa-cart-plus"></i></button>
-                    </div>
-                    <div class="product">
-                        <img class="product-image" src="images/product2.jpg" alt="product1" />
-                        <h5>Ramtons fridge<br> Ksh. 25000</h5>
-                        <button class="button" onclick="openModal()">Add&nbsp;<i class="fa fa-cart-plus"></i></button>
-                    </div>
-                    <div class="product">
-                        <img class="product-image" src="images/product3.jpg" alt="product1" />
-                        <h5>Ramtons fridge<br> Ksh. 25000</h5>
-                        <button class="button" onclick="openModal()">Add&nbsp;<i class="fa fa-cart-plus"></i></button>
-                    </div>
-                    <div class="product">
-                        <img class="product-image" src="images/product4.jpg" alt="product1" />
-                        <h5>Ramtons fridge<br> Ksh. 25000</h5>
-                        <button class="button" onclick="openModal()">Add&nbsp;<i class="fa fa-cart-plus"></i></button>
-                    </div>
-                    <div class="product">
-                        <img class="product-image" src="images/product5.jpg" alt="product1" />
-                        <h5>Ramtons fridge<br> Ksh. 25000</h5>
-                        <button class="button" onclick="openModal()">Add&nbsp;<i class="fa fa-cart-plus"></i></button>
-                    </div>
-                </div>
-                <div id="mobile">
-                    <h1 class="specific-cat">Mobile phones</h1>
-                    <div class="product">
-                        <img class="product-image" src="images/product8.jpg" alt="product1" />
-                        <h5>Ramtons fridge<br> Ksh. 25000</h5>
-                        <button class="button" onclick="openModal()">Add&nbsp;<i class="fa fa-cart-plus"></i></button>
-                    </div>
-                    <div class="product">
-                        <img class="product-image" src="images/product1.jpg" alt="product1" />
-                        <h5>Ramtons fridge<br> Ksh. 25000</h5>
-                        <button class="button" onclick="openModal()">Add&nbsp;<i class="fa fa-cart-plus"></i></button>
-                    </div>
-                    <div class="product">
-                        <img class="product-image" src="images/product2.jpg" alt="product1" />
-                        <h5>Ramtons fridge<br> Ksh. 25000</h5>
-                        <button class="button" onclick="openModal()">Add&nbsp;<i class="fa fa-cart-plus"></i></button>
-                    </div>
-                    <div class="product">
-                        <img class="product-image" src="images/product3.jpg" alt="product1" />
-                        <h5>Ramtons fridge<br> Ksh. 25000</h5>
-                        <button class="button" onclick="openModal()">Add&nbsp;<i class="fa fa-cart-plus"></i></button>
-                    </div>
-                    <div class="product">
-                        <img class="product-image" src="images/product4.jpg" alt="product1" />
-                        <h5>Ramtons fridge<br> Ksh. 25000</h5>
-                        <button class="button" onclick="openModal()">Add&nbsp;<i class="fa fa-cart-plus"></i></button>
-                    </div>
-                    <div class="product">
-                        <img class="product-image" src="images/product5.jpg" alt="product1" />
-                        <h5>Ramtons fridge<br> Ksh. 25000</h5>
-                        <button class="button" onclick="openModal()">Add&nbsp;<i class="fa fa-cart-plus"></i></button>
-                    </div>
-                </div>
-                <div id="camera">
-                    <h1 class="specific-cat">Camera</h1>
-                    <div class="product">
-                        <img class="product-image" src="images/product6.jpg" alt="product1" />
-                        <h5>Ramtons fridge<br> Ksh. 25000</h5>
-                        <button class="button" onclick="openModal()">Add&nbsp;<i class="fa fa-cart-plus"></i></button>
-                    </div>
-                    <div class="product">
-                        <img class="product-image" src="images/product7.jpg" alt="product1" />
-                        <h5>Ramtons fridge<br> Ksh. 25000</h5>
-                        <button class="button" onclick="openModal()">Add&nbsp;<i class="fa fa-cart-plus"></i></button>
-                    </div>
-                    <div class="product">
-                        <img class="product-image" src="images/product8.jpg" alt="product1" />
-                        <h5>Ramtons fridge<br> Ksh. 25000</h5>
-                        <button class="button" onclick="openModal()">Add&nbsp;<i class="fa fa-cart-plus"></i></button>
-                    </div>
-                    <div class="product">
-                        <img class="product-image" src="images/product9.jpg" alt="product1" />
-                        <h5>Ramtons fridge<br> Ksh. 25000</h5>
-                        <button class="button" onclick="openModal()">Add&nbsp;<i class="fa fa-cart-plus"></i></button>
-                    </div>
-                    <div class="product">
-                        <img class="product-image" src="images/product10.jpg" alt="product1" />
-                        <h5>Ramtons fridge<br> Ksh. 25000</h5>
-                        <button class="button" onclick="openModal()">Add&nbsp;<i class="fa fa-cart-plus"></i></button>
-                    </div>
-                </div>
+
+            <div class="description-modal" id="description">
+
+            </div>
+
+            <div class="products" id="products">
+
             </div>
         </div>
     </div>
     <footer>
         &copy;codeMarble
     </footer>
-    <script src="static/main.js"></script>
+    <script src="src/products.js"></script>
 </body>
 
 
