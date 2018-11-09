@@ -9,11 +9,11 @@ def create_app(config_name):
     '''Main function to create the flask app and
     set configurations'''
     app = Flask(__name__, instance_relative_config=True)
-    CORS(app)
     app.config.from_object(app_config[config_name])
     app.config.from_pyfile('../instance/config.py')
     app.register_blueprint(version1)
     app.register_blueprint(version2)
+    CORS(app, resources={r"/api/*": {"origins": "*"}})
 
     @app.errorhandler(404)
     def not_found(e):
@@ -23,10 +23,9 @@ def create_app(config_name):
         }), 404)
 
     @app.errorhandler(500)
-    def internal_error(e):
-        '''Defining a custom message for internal server error'''
-        return make_response(jsonify({
-            "Message": "The system ran into a problem due to an internal server error \n Consider fixing"
-        }), 500)
-
+    def server_error(e):
+        logging.exception('An error occurred during a request. %s', e)
+        logging.getLogger('flask_cors').level = logging.DEBUG
+        return "An internal error occured", 500
+    
     return app

@@ -6,8 +6,4 @@ env/
 .coverage
 .vscode/
 .env
-package.json
-spec/
 node_modules/
-*.log
-*.json
