@@ -39,6 +39,7 @@ function loginUser(e) {
                         data.Users.forEach(user => {
                             if (user.email == email) {
                                 localStorage.setItem("role", user.admin)
+                                localStorage.setItem("email", user.email)
                                 window.location.href = "home.html";
                             }
                         });
