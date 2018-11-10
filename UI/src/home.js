@@ -102,9 +102,3 @@ function openModal(product_id) {
 
 }
 
-// alert(localStorage.getItem("role"));
-if (localStorage.getItem("role") == "true") {
-    let adminopt = document.getElementById("adminopt");
-    admin = `<a href="admin/dashboard.html">Admin&nbsp;<i class="fa fa-sign-in-alt"></i></a>`
-    adminopt.innerHTML = admin;
-}

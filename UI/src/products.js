@@ -149,7 +149,9 @@ function updateProduct(e) {
                 let messagebox = document.getElementById("message-update");
                 messagebox.innerHTML = '';
                 messagebox.innerHTML = data.Message || data.message;
+                if (data.Message == "Successfully updated"){
                 window.location.reload();
+                }
             })
             .catch((err) => console.log(err))
     }
@@ -197,6 +199,8 @@ function productRegister(e) {
             }
             message.innerHTML = '';
             message.innerHTML = data.message || data.Message;
+            if (data.Message == "Successfully added"){
             window.location.reload();
+            }
         })
 }

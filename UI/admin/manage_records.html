@@ -28,20 +28,16 @@
                     <li><a href="manage_users.html">Attendants&nbsp;<i class="fa fa-user"></i></a></li>
                     <li><a href="manage_products.html">Products&nbsp;<i class="fa fa-shopping-bag"></i></a></li>
                     <li><a href="manage_records.html" class="current">Records&nbsp;<i class="fa fa-database"></i></a></li>
-                    <li><a href="../index.html">Logout&nbsp;<i class="fa fa-sign-out-alt"></i></a></li>
+                    <li><a style="cursor:pointer;" id="logoutadmin">Logout&nbsp;<i class="fa fa-sign-out-alt"></i></a></li>
                 </ul>
             </div>
         </div>
     </header>
     <div class="main-sec">
         <a href="dashboard.html"><i class="fa fa-arrow-left"></i></a>
-        <div class="select-user">
-            <select id="attendants" required>
-                
-            </select>
-            <button class="button">&nbsp;<i class="fa fa-search"></i></button>
-        </div>
-
+        <div class="search" id="att">
+                <input type="text" id="filter" placeholder="Enter the user email you want to filter sales for" /><br><br>
+            </div>
         <div class="records">
             <h1>Attendant Records</h1>
             <table class="records-table" id="records">
@@ -54,6 +50,7 @@
         &copy;codeMarble
     </footer>
     <script src="../src/records.js"></script>
+    <script src="../src/logout.js"></script>
 </body>
 
 </html>

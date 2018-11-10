@@ -1,20 +1,18 @@
 'use-strict';
 
 window.onload = () => {
-
-    fetch("https://store-manager-app.herokuapp.com/api/v2/sales", {
-        headers: {
-            'Content-Type': 'application/json',
-            'x-access-token': localStorage.getItem("token")
-        }
-    })
-        .then(res => res.json())
-        .then(data => {
-            if (data.Message == "Success") {
-                let total = `<tr><td>Total Sales:</td><td>Ksh.${data.Total}</td></tr>`
-                let att = document.getElementById("attendants");
-                let attendants = ``;
-                let output = `<tr>
+    if (localStorage.getItem("role") == "true") {
+        fetch("https://store-manager-app.herokuapp.com/api/v2/sales", {
+            headers: {
+                'Content-Type': 'application/json',
+                'x-access-token': localStorage.getItem("token")
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.Message == "Success") {
+                    let total = `<tr><td>Total Sales:</td><td>Ksh.${data.Total}</td></tr>`
+                    let output = `<tr>
                 <th>
                     Id
                 </th>
@@ -41,9 +39,9 @@ window.onload = () => {
                 </th>
 
             </tr>`
-                data.Sales.forEach(sale => {
-                    output +=
-                        `<tr>
+                    data.Sales.forEach(sale => {
+                        output +=
+                            `<tr>
                 <td>${sale.id}</td>
                     <td>${sale.email}</td>
                     <td>${sale.title}</td>
@@ -53,24 +51,23 @@ window.onload = () => {
                     <td><button class="button"><i class="fa fa-edit"></i></button></td>
                     <td><button class="button"><i class="fa fa-trash"></i></button></td>
                 </tr>`
-                    attendants += `<option>${sale.email}</option>`
-                });
-                if (att) {
-                    document.getElementById("attendants").innerHTML = attendants;
+                    });
+
                     document.getElementById("records").innerHTML = output + total;
                 }
-                else {
-                    fetch("https://store-manager-app.herokuapp.com/api/v2/sales", {
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'x-access-token': localStorage.getItem("token")
-                        }
-                    })
-                        .then(res => res.json())
-                        .then(data => {
-                            if (data.Message == "Success") {
-                                let total = `<tr><td>Total Sales:</td><td>Ksh.${data.Total}</td></tr>`
-                                let output = `<tr>
+            })
+    }
+    else {
+        fetch("https://store-manager-app.herokuapp.com/api/v2/sales", {
+            headers: {
+                'Content-Type': 'application/json',
+                'x-access-token': localStorage.getItem("token")
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                let totalamount = `<tr><td>Total Sales:</td><td>Ksh.${data.Total}</td></tr>`
+                let display = `<tr>
                             <th>
                                 Id
                             </th>
@@ -87,31 +84,23 @@ window.onload = () => {
                                 Subtotal (Ksh.)
                             </th>
                         </tr>`
-                                data.Sales.forEach(sale => {
-                                    if (sale.email == localStorage.getItem("email")) {
-                                        output +=
-                                            `<tr>
-                                            <td>${sale.id}</td>
-                                                <td>${sale.title}</td>
-                                                <td>${sale.quantity}</td>
-                                                <td>${sale.date}</td>
-                                                <td>${sale.subtotals}</td>
+                data.Sales.forEach(onesale => {
+                    if (data.Message != "Success") {
+                        alert(data.Message || data.message)
+                    }
+                    if (onesale.email == localStorage.getItem("email")) {
+                            display +=
+                                `<tr>
+                                            <td>${onesale.id}</td>
+                                                <td>${onesale.title}</td>
+                                                <td>${onesale.quantity}</td>
+                                                <td>${onesale.date}</td>
+                                                <td>${onesale.subtotals}</td>
                                             </tr>`
-
-                                        document.getElementById("records").innerHTML = output + total;
-                                    }
-                                    else {
-                                        document.getElementById("records").innerHTML = "You dont have any sales!";
-                                    }
-                                })
-                            }
-                        });
-
-                }
-                localStorage.setItem("recordcount", data.Sales.length);
-            }
-            else {
-                alert(data.Message || data.message);
-            }
-        })
+                    }
+                    document.getElementById("attrecords").innerHTML = display;
+                    localStorage.setItem("recordcount", data.Sales.length);
+                })
+            });
+    }
 }

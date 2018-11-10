@@ -23,12 +23,14 @@
                 <label><a href="#"><i class="fa fa-american-sign-language-interpreting"></i>&nbsp;StoreManager</a></label>
             </div>
             <div class="nav-menu">
-                <ul><li><a id="adminopt"></a></li></ul>
+                <ul>
+                    <li><a id="adminopt"></a></li>
+                </ul>
                 <ul>
                     <li><a href="home.html" class="current">Home&nbsp;<i class="fa fa-home"></i></a></li>
-                    <li><a href="records.html">Records&nbsp;<i class="fa fa-database"></i></a></li>
+                    <li><a id="salerecs" href="records.html">Records&nbsp;<i class="fa fa-database"></i></a></li>
                     <li><a href="user_profile.html">Profile&nbsp;<i class="fa fa-user"></i></a></li>
-                    <li><a href="index.html">Logout&nbsp;<i class="fa fa-sign-out-alt"></i></a></li>
+                    <li><a style="cursor:pointer;" id="logout">Logout&nbsp;<i class="fa fa-sign-out-alt"></i></a></li>
                 </ul>
             </div>
         </div>
@@ -60,7 +62,9 @@
 
         <div class="main-section">
             <div class="categories">
+                <hr>
                 <h2>Categories</h2>
+                <hr>
                 <ul>
                     <li>
                         <a href="#" id="all">All</a>
@@ -85,19 +89,19 @@
                     <li>
                         <a href="#camera">cameras</a>
                     </li>
+                    <li>
+                        <a href="#cars">Cars</a>
+                    </li>
+                    <li>
+                        <a href="#helicopters">Telicopters</a>
+                    </li>
+                    <li>
+                        <a href="#toys">Toys</a>
+                    </li>
                 </ul>
-                <div class="most-purchased">
-                    <h2>Most purchased <br>products</h2>
-                    <ul>
-                        <li>
-                            <a href="#">Tecno</a>
-                        </li>
-                        <li>
-                            <a href="#">Infinix</a>
-                        </li>
-                    </ul>
-                </div>
+                <hr>
             </div>
+
 
 
             <div class="description-modal" id="description">
@@ -112,7 +116,9 @@
     <footer>
         &copy;codeMarble
     </footer>
+    <script src="src/nav.js"></script>
     <script src="src/home.js"></script>
+    <script src="src/logout.js"></script>
 </body>
 
 

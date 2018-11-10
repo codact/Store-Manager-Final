@@ -25,10 +25,13 @@
 
             <div class="nav-menu">
                 <ul>
+                    <li><a id="adminopt"></a></li>
+                </ul>
+                <ul>
                     <li><a href="home.html">Home&nbsp;<i class="fa fa-home"></i></a></li>
-                    <li><a href="records.html" class="current">Records&nbsp;<i class="fa fa-database"></i></a></li>
+                    <li><a id="salerecs" href="records.html" class="current">Records&nbsp;<i class="fa fa-database"></i></a></li>
                     <li><a href="user_profile.html">Profile&nbsp;<i class="fa fa-user"></i></a></li>
-                    <li><a href="index.html">Logout&nbsp;<i class="fa fa-sign-out-alt"></i></a></li>
+                    <li><a style="cursor:pointer;" id="logout">Logout&nbsp;<i class="fa fa-sign-out-alt"></i></a></li>
                 </ul>
             </div>
         </div>
@@ -52,21 +55,22 @@
             </div>
         </div>
         <div class="search">
-            <input type="text" id="filter" placeholder="Search product" /><br><br>
+            <input type="text" id="filter" placeholder="Search sale by Id" /><br><br>
             <button class="cart-button" id="cart-icon" onclick="openCart()"><i class="fa fa-shopping-cart"></i></button>
         </div>
         <div class="records">
             <h1>My Sales Records</h1>
-            <table class="records-table" id="records">
-                
+            <table class="records-table" id="attrecords">
+
             </table>
         </div>
     </div>
     <footer>
         &copy;codeMarble
     </footer>
+    <script src="src/nav.js"></script>
     <script src="src/records.js"></script>
+    <script src="src/logout.js"></script>
 </body>
-
 
 </html>
