@@ -77,6 +77,7 @@ function deleteProduct(productId) {
             .then(res => res.json())
             .then(data => {
                 alert(data.message || data.Message);
+                window.location.reload();
             })
     }
 }
@@ -148,6 +149,7 @@ function updateProduct(e) {
                 let messagebox = document.getElementById("message-update");
                 messagebox.innerHTML = '';
                 messagebox.innerHTML = data.Message || data.message;
+                window.location.reload();
             })
             .catch((err) => console.log(err))
     }
@@ -195,5 +197,6 @@ function productRegister(e) {
             }
             message.innerHTML = '';
             message.innerHTML = data.message || data.Message;
+            window.location.reload();
         })
 }

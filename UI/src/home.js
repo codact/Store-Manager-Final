@@ -9,7 +9,7 @@ window.onload = function getProducts(e) {
         .then(res => res.json())
         .then(data => {
             let oneproduct = ''
-            if (data.Message == "token invalid"){
+            if (data.Message == "token invalid") {
                 window.location.replace("index.html");
             }
             if (data.products) {
@@ -40,6 +40,7 @@ window.onload = function getProducts(e) {
 
 //variables to get all html elements by their id
 let details = document.getElementById("description");
+let cart_items = document.getElementById("carticon");
 
 //function to set modal display to inline if button clicked
 function openModal(product_id) {
@@ -48,7 +49,7 @@ function openModal(product_id) {
     details.style.display = "inline";
     let token = localStorage.getItem('token')
     let product = JSON.parse(localStorage.getItem("product"));
-    fetch(`https://store-manager-app.herokuapp.com/api/v2/products/`+prod_id, {
+    fetch(`https://store-manager-app.herokuapp.com/api/v2/products/` + prod_id, {
         headers: { 'x-access-token': token }
     })
         .then(res => res.json())
@@ -84,21 +85,26 @@ function openModal(product_id) {
                             </tr>
 
                         </table>
-                        <p>Description</p> ${prod.description}<br><br><br>
-                        <button class="button" id="proceed">Proceed&nbsp;<i class="fa fa-cart-plus"></i></button>
+                        <p>Enter the quantity to sell</p> <input type="text" placeholder="Quantity"><br><br><br>
+                        <button class="button" onclick="addToCart" id="proceed">Proceed&nbsp;<i class="fa fa-cart-plus"></i></button>
                     </div>
                 </div>
             </div>`
-                    details.innerHTML = modalcontent;
-                })
+            details.innerHTML = modalcontent;
+        })
 
     //function to close modal if a person clicks outside its main body
     window.onclick = function (event) {
-        if (event.target == details || event.target == cart_items) {
+        if (event.target == details) {
             details.style.display = "none";
-            cart_items.style.display = "none";
         }
     }
 
 }
 
+// alert(localStorage.getItem("role"));
+if (localStorage.getItem("role") == "true") {
+    let adminopt = document.getElementById("adminopt");
+    admin = `<a href="admin/dashboard.html">Admin&nbsp;<i class="fa fa-sign-in-alt"></i></a>`
+    adminopt.innerHTML = admin;
+}

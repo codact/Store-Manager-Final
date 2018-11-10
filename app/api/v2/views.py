@@ -139,9 +139,9 @@ class UpdateUser(Resource):
 class GetUsers(Resource):
     @token_required
     def get(current_user, self):
-        if not current_user["admin"]:
+        if not current_user:
             return make_response(jsonify({
-            "Message": "Must be admin"
+            "Message": "Must be a user to view users"
         }), 401)
         item = User_Model()
         users = item.get()

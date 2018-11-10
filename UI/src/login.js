@@ -1,6 +1,7 @@
 'use-strict';
 
-document.getElementById("loginfrm").addEventListener("submit", loginUser)
+document.getElementById("loginfrm").addEventListener("submit", loginUser);
+
 
 function loginUser(e) {
 
@@ -28,8 +29,20 @@ function loginUser(e) {
                 `<p>${data.message || data.Message}</p>`
             if (data.message == 'Login success') {
                 localStorage.setItem("token", data.token);
-                window.location.replace('home.html');
-                return true
+                fetch("https://store-manager-app.herokuapp.com/api/v2/users", {
+                    headers: {
+                        'x-access-token': data.token
+                    }
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        data.Users.forEach(user => {
+                            if (user.email == email) {
+                                localStorage.setItem("role", user.admin)
+                                window.location.href = "home.html";
+                            }
+                        });
+                    })
             }
         })
         .catch((err) => console.log(err))
