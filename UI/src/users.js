@@ -60,6 +60,7 @@ function promoteUser(userId) {
         .then(res => res.json())
         .then(data => {  
                 alert(data.message || data.Message);
+                window.location.reload();
         })
     }
 }
@@ -106,7 +107,6 @@ function signupFunc(e) {
                 }
                 message.innerHTML = '';
                 message.innerHTML = data.message || data.Message;
-                console.log(data.Admin)
             })
     }
 }

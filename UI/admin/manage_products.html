@@ -28,7 +28,7 @@
                     <li><a href="manage_users.html">Attendants&nbsp;<i class="fa fa-user"></i></a></li>
                     <li><a href="manage_products.html" class="current">Products&nbsp;<i class="fa fa-shopping-bag"></i></a></li>
                     <li><a href="manage_records.html">Records&nbsp;<i class="fa fa-database"></i></a></li>
-                    <li><a href="../index.html">Logout&nbsp;<i class="fa fa-user"></i></a></li>
+                    <li><a style="cursor:pointer;" id="logoutadmin">Logout&nbsp;<i class="fa fa-sign-out-alt"></i></a></li>
                 </ul>
             </div>
         </div>
@@ -58,14 +58,13 @@
         <div class="product-section">
             <form class="prod-form" id="prodform">
                 <h1>Create</h1>
-                <label id="message"></label><br><br>
+                <label id="message" style="color: red"></label><br><br>
                 <input id="title" type="text" placeholder="Title"><br>
                 <input id="price" type="text" placeholder="Price">
                 <input id="quantity" type="text" placeholder="Quantity"><br>
                 <input id="minimum_stock" type="text" placeholder="Minimum Stock"><br>
                 <input id="description" type="text" placeholder="Description"><br>
                 <label>Category:&nbsp;</label><select required id="category">
-                    <option selected disabled>--Select Category--</option>
                     <option>Electronics</option>
                     <option>Clothes</option>
                     <option>Food</option>
@@ -75,14 +74,13 @@
 
             <form class="update-form" id="updatefrm">
                 <p>Update Product</p>
-                <label id="message-update"></label><br><br>
+                <label id="message-update" style="color:red"></label><br><br>
                 <input id="ptitle" type="text" placeholder="Title"><br>
                 <input id="pprice" type="text" placeholder="Price">
                 <input id="pquantity" type="text" placeholder="Quantity"><br>
                 <input id="pminimum_stock" type="text" placeholder="Minimum Stock"><br>
                 <input id="pdescription" type="text" placeholder="Description"><br>
                 <label>Category:&nbsp;</label><select required id="pcategory">
-                        <option selected disabled>--Select Category--</option>
                         <option>Electronics</option>
                         <option>Clothes</option>
                         <option>Food</option>
@@ -95,6 +93,7 @@
         &copy;codeMarble
     </footer>
     <script src="../src/products.js"></script>
+    <script src="../src/logout.js"></script>
 </body>
 
 </html>

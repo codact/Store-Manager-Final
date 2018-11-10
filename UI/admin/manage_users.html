@@ -28,7 +28,7 @@
                     <li><a href="manage_users.html" class="current">Attendants&nbsp;<i class="fa fa-user"></i></a></li>
                     <li><a href="manage_products.html">Products&nbsp;<i class="fa fa-shopping-bag"></i></a></li>
                     <li><a href="manage_records.html">Records&nbsp;<i class="fa fa-database"></i></a></li>
-                    <li><a href="../index.html">Logout&nbsp;<i class="fa fa-user"></i></a></li>
+                    <li><a style="cursor:pointer;" id="logoutadmin">Logout&nbsp;<i class="fa fa-sign-out-alt"></i></a></li>
                 </ul>
             </div>
         </div>
@@ -58,7 +58,7 @@
         <div class="signup-section">
             <form class="signup-form" id="signupfrm">
                 <h1>Register Here</h1>
-                <div id="message"></div><br>
+                <div id="message" style="color:red;"></div><br>
                 <input id="email" type="text" placeholder="Email"><br>
                 <input id="password" type="password" placeholder="Password"><br>
                 <input id="password2" type="password" placeholder="Re-enter Password"><br>
@@ -75,6 +75,7 @@
         &copy;codeMarble
     </footer>
     <script src="../src/users.js"></script>
+    <script src="../src/logout.js"></script>
 </body>
 
 </html>

@@ -139,9 +139,9 @@ class UpdateUser(Resource):
 class GetUsers(Resource):
     @token_required
     def get(current_user, self):
-        if not current_user["admin"]:
+        if not current_user:
             return make_response(jsonify({
-            "Message": "Must be admin"
+            "Message": "Must be a user to view users"
         }), 401)
         item = User_Model()
         users = item.get()
@@ -374,7 +374,7 @@ class Sale(Resource):
     @token_required
     def get(current_user, self):
         '''Method for getting all sales'''
-        if current_user and current_user["admin"]:
+        if current_user:
             sale_obj = Sales_Model()
             sales = sale_obj.get()
             total = 0
@@ -394,7 +394,7 @@ class Sale(Resource):
             return response
         else:
             return make_response(jsonify({
-                "Message": "Must be an admin"
+                "Message": "Must be logged in"
             }), 401)
 
 
