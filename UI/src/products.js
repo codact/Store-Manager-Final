@@ -64,6 +64,23 @@ window.onload = () => {
         });
 }
 
+function deleteProduct(productId) {
+    let product_Id = productId
+    let option = confirm("Do you really want to delete this product?");
+    if (option) {
+        fetch(`https://store-manager-app.herokuapp.com/api/v2/products/` + product_Id, {
+            method: 'DELETE',
+            headers: {
+                'x-access-token': localStorage.getItem("token")
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                alert(data.message || data.Message);
+            })
+    }
+}
+
 let productfrm = document.getElementById("prodform");
 productfrm.addEventListener("submit", productRegister);
 
