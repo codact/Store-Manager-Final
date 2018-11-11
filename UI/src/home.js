@@ -59,7 +59,7 @@ function openModal(product_id) {
             modalcontent += `
                 <div class="modal-content">
                 <div class="modal-title">
-                    <h1>${prod.title}</h1>
+                    <h1 id="titleprod">${prod.title}</h1>
                 </div>
                 <div class="container">
                     <div class="pic">
@@ -69,24 +69,24 @@ function openModal(product_id) {
                         <table>
                             <tr>
                                 <td>Category: </td>
-                                <td> ${prod.category}</td>
+                                <td id="categoryprod"> ${prod.category}</td>
                             </tr>
                             <tr>
                                 <td>Quantity: </td>
-                                <td> ${data.Product.quantity}</td>
+                                <td id="quantityprod"> ${data.Product.quantity}</td>
                             </tr>
                             <tr>
                                 <td>Minimum quantity:</td>
-                                <td>${prod.minimum_stock}</td>
+                                <td id="minimumprod">${prod.minimum_stock}</td>
                             </tr>
                             <tr>
                                 <td>Price:</td>
-                                <td>${prod.price}</td>
+                                <td id="priceprod">${prod.price}</td>
                             </tr>
 
-                        </table>
-                        <p>Enter the quantity to sell</p> <input type="text" placeholder="Quantity"><br><br><br>
-                        <button class="button" onclick="addToCart" id="proceed">Proceed&nbsp;<i class="fa fa-cart-plus"></i></button>
+                        </table><hr>
+                        <h5>Enter sale quantity</h5> <input required id="quanty" type="text" size=10 placeholder="Quantity"><br><br><br>
+                        <button class="button" onclick="addToCart()" id="proceed">Proceed&nbsp;<i class="fa fa-cart-plus"></i></button>
                     </div>
                 </div>
             </div>`
@@ -102,3 +102,25 @@ function openModal(product_id) {
 
 }
 
+function addToCart() {
+    let quantity = document.getElementById("quanty").value;
+    let title = document.getElementById("titleprod").innerHTML;
+    let priceprod = document.getElementById("priceprod").innerHTML;
+    let items = document.getElementById("items");
+
+    item = `
+            <li>${title}
+            <span class="price"> Ksh.${priceprod}&nbsp;&nbsp;&nbsp;
+            <span class="quantity"> Ksh.${quantity}&nbsp;&nbsp;&nbsp;
+            <span class="remove-item">x</span>
+            </li>
+            `
+    items.innerHTML = item;
+    alert("ADDED");
+
+}
+
+function openCart(){
+    let cart = document.getElementById("cart");
+    cart.style.display = "block";
+}
