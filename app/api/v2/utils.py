@@ -319,7 +319,11 @@ class Validator_sales(object):
         if len(self.data) > 2:
             Message = "Too many fields provided, only the title and quantity is required"
             abort(400, Message)
-
+        try:
+            self.data["quantity"] = int(self.data["quantity"])
+        except:
+            Message = "Enter the quantity"
+            abort(400, Message)
         if int(self.data["quantity"]) <= 0:
             Message = "Quantity must be more than 0"
             abort(400, Message)
