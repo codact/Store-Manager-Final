@@ -23,19 +23,17 @@ window.onload = () => {
                     Price
                 </th>
                 <th>
-                    Quantity
+                    Amount
                 </th>
                 <th>
-                    Minimum_stock
+                    Min_stock
                 </th>
                 <th>
                     Description
                 </th>
                 <th>
-                    Update
                 </th>
                 <th>
-                    Delete
                 </th>
             </tr>`;
                 data.products.forEach(product => {

@@ -11,10 +11,9 @@ window.onload = function getProducts(e) {
             if (data.products) {
                 data.products.forEach(product => {
                     oneproduct += `
-                    <div class="product" id="prod>
-                    <i class="fa fa-cart-plus"></i>
+                    <div class="product" id="prod">
                         <h5 id="item-title">${product.title}</h5>
-                        <h5 id="item-price">Ksh.&nbsp;${product.price}</h5>
+                        <h6 id="item-price">Ksh.&nbsp;${product.price}</h6>
                         <button id="add" class="button" onclick="openModal('${product.id}')">Sell&nbsp;<i class="fa fa-cart-plus"></i></button>
                     </div>
                     `
@@ -126,3 +125,22 @@ function makeSale() {
             })
     }
 }
+
+function searchProduct(){
+    let input, filter, i;
+  input = document.getElementById("input");
+  filter = input.value.toUpperCase();
+  products = document.getElementById("products");
+  div = products.getElementsByTagName("div")
+  for (i = 0; i < div.length; i++) {
+      title = products.getElementsByTagName("h5");
+      if (title) {
+        if (title[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
+            div[i].style.display = "";
+        } else {
+            div[i].style.display = "none";
+        }
+        } 
+    }
+
+    }
