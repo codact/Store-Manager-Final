@@ -52,7 +52,7 @@ window.onload = () => {
                 </tr>`
                     });
 
-                    document.getElementById("records").innerHTML = output + total;
+                    document.getElementById("attrecords").innerHTML = output + total;
                 }
             })
     }
@@ -104,4 +104,23 @@ window.onload = () => {
 
             });
     }
+}
+
+function searchSale(){
+    let input, filter, table, tr, td, i;
+  input = document.getElementById("input");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("attrecords");
+  tr = table.getElementsByTagName("tr");
+
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[1];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    } 
+  }
 }

@@ -280,7 +280,7 @@ Styling for body divs
 .main-container {
     width: 100%;
     display: flex;
-
+    min-height: 100%;
 }
 
 .main-container {
@@ -412,8 +412,12 @@ Styling for body divs
 .prods-table tr td {
     text-align: center;
     border: solid 1px white;
-    padding: 0.8%;
+    padding: 7px;
     border-radius: 3px;
+}
+.prods-table tr td{
+    padding:0;
+    margin:0;
 }
 
 .users-table tr:nth-child(even),

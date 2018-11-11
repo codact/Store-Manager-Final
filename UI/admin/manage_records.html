@@ -37,11 +37,11 @@
     <div class="main-sec">
         <a href="dashboard.html"><i class="fa fa-arrow-left"></i></a>
         <div class="search" id="att">
-            <input type="search" id="filter" placeholder="Enter the user email you want to filter sales for" /><br><br>
+            <input type="search" id="input" onkeyup="searchSale()" placeholder="Enter the user email you want to filter sales for" /><br><br>
         </div>
         <div class="records">
             <h1>Attendant Records</h1>
-            <table class="records-table" id="records">
+            <table class="records-table" id="attrecords">
 
             </table>
         </div>
