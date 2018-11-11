@@ -10,7 +10,7 @@ window.onload = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.Message == "Success") {
-                    let total = `<tr><td>Total Sales:</td><td>Ksh.${data.Total}</td></tr>`
+                    let total = `<tr><td><b>Total Sales:</b></td><td>Ksh.${data.Total}</td></tr>`
                     let output = `<tr>
                 <th>
                     Id

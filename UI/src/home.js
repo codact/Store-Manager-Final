@@ -11,8 +11,8 @@ window.onload = function getProducts(e) {
             if (data.products) {
                 data.products.forEach(product => {
                     oneproduct += `
-                <div class="product" id="prod>
-                        <img class="product-image" src="./images/product1.jpg" alt="product1" />
+                    <div class="product" id="prod>
+                    <i class="fa fa-cart-plus"></i>
                         <h5 id="item-title">${product.title}</h5>
                         <h5 id="item-price">Ksh.&nbsp;${product.price}</h5>
                         <button id="add" class="button" onclick="openModal('${product.id}')">Sell&nbsp;<i class="fa fa-cart-plus"></i></button>
@@ -59,11 +59,8 @@ function openModal(product_id) {
                     <h1 id="titleprod">${prod.title}</h1>
                 </div>
                 <div class="container">
-                    <div class="pic">
-                        <img class="product-image" src="images/product1.jpg" />
-                    </div>
                     <div class="detail">
-                    <span id="messager" style="color: red;"></span>
+                    <span id="messager" style="color: red;"></span><br>
                         <table>
                             <tr>
                                 <td>Category: </td>
@@ -82,7 +79,7 @@ function openModal(product_id) {
                                 <td id="priceprod">${prod.price}</td>
                             </tr>
 
-                        </table><hr>
+                        </table>
                         <h5>Enter sale quantity</h5> <input required id="quanty" type="number" size=10 placeholder="Quantity"><br><br><br>
                         <button class="button" onclick="makeSale()" id="proceed">Proceed&nbsp;<i class="fa fa-cart-plus"></i></button>
                     </div>
