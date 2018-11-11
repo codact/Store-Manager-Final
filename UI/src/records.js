@@ -1,4 +1,3 @@
-'use-strict';
 
 window.onload = () => {
     if (localStorage.getItem("role") == "true") {
@@ -75,21 +74,23 @@ window.onload = () => {
                             </th>
                             <th>
                                 Quantity
-                            </th>
-                            <th>
+                                </th>
+                                <th>
                                 Date/Time
-                            </th>
-                            <th>
+                                </th>
+                                <th>
                                 Subtotal (Ksh.)
-                            </th>
-                        </tr>`
+                                </th>
+                                </tr>`
+                let finaltotal = 0
                 data.Sales.forEach(onesale => {
                     if (data.Message != "Success") {
                         alert(data.Message || data.message)
                     }
                     if (onesale.email == localStorage.getItem("email")) {
-                            display +=
-                                `<tr>
+                        finaltotal += onesale.subtotals
+                        display +=
+                            `<tr>
                                             <td>${onesale.id}</td>
                                                 <td>${onesale.title}</td>
                                                 <td>${onesale.quantity}</td>
@@ -97,8 +98,10 @@ window.onload = () => {
                                                 <td>${onesale.subtotals}</td>
                                             </tr>`
                     }
-                    document.getElementById("attrecords").innerHTML = display;
                 })
+                let grandtotal = `<tr><td><b>Grand Total: </b></td><td>${finaltotal}</td></tr>`
+                document.getElementById("attrecords").innerHTML = display + grandtotal;
+
             });
     }
 }

@@ -78,38 +78,6 @@ class TestSales(TestsForApi):
                          "Must enter the product details in the body")
         self.assertEqual(resp.status_code, 400)
 
-    def test_post_sale_product_id_wrong_data_type(self):
-        '''Test to assert the correct datatype for product id when
-        making a sale'''
-        resp = self.test_client.post("/api/v2/sales",
-                                     data=json.dumps({
-                                         "title": 2901,
-                                         "quantity": 1
-                                     }),
-                                     headers={
-                                         'x-access-token': self.attendant_token,
-                                         'content-type': 'application/json'
-                                     })
-        response = json.loads(resp.data)
-        self.assertEqual(response["message"], "title must be a string")
-        self.assertEqual(resp.status_code, 400)
-
-    def test_post_sale_wrong_quantity_data_type(self):
-        '''Test to assert the correct datatype for quantity when
-        making a sale'''
-        resp = self.test_client.post("/api/v2/sales",
-                                     data=json.dumps({
-                                         "title": "orange",
-                                         "quantity": "one"
-                                     }),
-                                     headers={
-                                         'x-access-token': self.attendant_token,
-                                         'content-type': 'application/json'
-                                     })
-        response = json.loads(resp.data)
-        self.assertEqual(response["message"], "Quantity must be an integer")
-        self.assertEqual(resp.status_code, 400)
-
     def test_post_sale_many_fields_given(self):
         '''Test to assert the result if many fields are given'''
         resp = self.test_client.post("/api/v2/sales",

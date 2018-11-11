@@ -1,4 +1,3 @@
-'use-strict';
 
 window.onload = function getProducts(e) {
     fetch('https://store-manager-app.herokuapp.com/api/v2/products', {
@@ -16,7 +15,7 @@ window.onload = function getProducts(e) {
                         <img class="product-image" src="./images/product1.jpg" alt="product1" />
                         <h5 id="item-title">${product.title}</h5>
                         <h5 id="item-price">Ksh.&nbsp;${product.price}</h5>
-                        <button id="add" class="button" onclick="openModal('${product.id}')">Add&nbsp;<i class="fa fa-cart-plus"></i></button>
+                        <button id="add" class="button" onclick="openModal('${product.id}')">Sell&nbsp;<i class="fa fa-cart-plus"></i></button>
                     </div>
                     `
                     localStorage.setItem('product', JSON.stringify(data.products))
@@ -26,6 +25,7 @@ window.onload = function getProducts(e) {
             else {
                 alert(data.Message || data.message);
                 window.location.replace("./admin/manage_products.html")
+
             }
         })
         .catch((err) => {
@@ -37,7 +37,6 @@ window.onload = function getProducts(e) {
 
 //variables to get all html elements by their id
 let details = document.getElementById("description");
-let cart_items = document.getElementById("carticon");
 
 
 //function to set modal display to inline if button clicked
@@ -71,7 +70,7 @@ function openModal(product_id) {
                             </tr>
                             <tr>
                                 <td>Quantity: </td>
-                                <td id="quantityprod"> ${data.Product.quantity}</td>
+                                <td id="quantityprod"> ${prod.quantity}</td>
                             </tr>
                             <tr>
                                 <td>Minimum quantity:</td>
@@ -113,34 +112,19 @@ function makeSale() {
     else {
         let title = document.getElementById("titleprod").innerHTML;
         fetch('https://store-manager-app.herokuapp.com/api/v2/sales', {
-        headers: { 
-            'x-access-token': localStorage.getItem("token"), 
-            'Content-Type': 'application/json'
-        },
-        method: 'POST',
-        body: JSON.stringify({
-            'title': title,
-            'quantity': quantity
+            headers: {
+                'x-access-token': localStorage.getItem("token"),
+                'Content-Type': 'application/json'
+            },
+            method: 'POST',
+            body: JSON.stringify({
+                'title': title,
+                'quantity': quantity
+            })
         })
-        })
-        .then(res => res.json())
-        .then(data => {
-            alert(data.message || data.Message);
-        })
-    }
-}
-
-function openCart() {
-    let cart = document.getElementById("cart");
-    cart.style.display = "block";
-    window.onclick = function (event) {
-        if (event.target == cart) {
-            cart.style.display = "none";
-        }
-    }
-
-    document.getElementById("closecart").addEventListener("click", closeCart);
-    function closeCart() {
-        cart.style.display = "none";
+            .then(res => res.json())
+            .then(data => {
+                alert(data.message || data.Message);
+            })
     }
 }

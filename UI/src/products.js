@@ -1,4 +1,3 @@
-'use-strict';
 
 window.onload = () => {
     document.getElementsByClassName("product-section")[0].style.width = "0%";
