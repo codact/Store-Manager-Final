@@ -316,6 +316,10 @@ class Validator_sales(object):
 
     def validate_data_types(self):
         '''validates datatype of the title passed'''
+        try:
+            self.data["quantity"] = int(self.data["quantity"])
+        except ValueError:
+            pass
         if len(self.data) > 2:
             Message = "Too many fields provided, only the title and quantity is required"
             abort(400, Message)

@@ -83,8 +83,8 @@ function openModal(product_id) {
                             </tr>
 
                         </table><hr>
-                        <h5>Enter sale quantity</h5> <input required id="quanty" type="text" size=10 placeholder="Quantity"><br><br><br>
-                        <button class="button" onclick="addToCart()" id="proceed">Proceed&nbsp;<i class="fa fa-cart-plus"></i></button>
+                        <h5>Enter sale quantity</h5> <input required id="quanty" type="number" size=10 placeholder="Quantity"><br><br><br>
+                        <button class="button" onclick="makeSale()" id="proceed">Proceed&nbsp;<i class="fa fa-cart-plus"></i></button>
                     </div>
                 </div>
             </div>`
@@ -104,32 +104,29 @@ function openModal(product_id) {
 
 }
 
-function addToCart() {
-    let quantity = document.getElementById("quanty").value;
+function makeSale() {
+    let quantity = Number.parseInt(document.getElementById("quanty").value);
     if (localStorage.getItem("role") == "true") {
         alert("This function is preserved for attendants");
         details.style.display = "none";
     }
-    else if (quantity == "") {
-        alert("Enter the quantity to sell");
-    }
     else {
         let title = document.getElementById("titleprod").innerHTML;
-        let priceprod = document.getElementById("priceprod").innerHTML;
-        let items = document.getElementById("items");
-
-        item = `
-            <li>${title}
-            <span class="price"> Price: ${priceprod}&nbsp;&nbsp;&nbsp;
-            <span class="quantity"> Quantity: ${quantity}&nbsp;&nbsp;&nbsp;
-            <span class="remove-item">x</span>
-            </li>
-            `
-
-        items.innerHTML = item;
-        localStorage.setItem("cartitem", item);
-        alert("Success");
-        details.style.display = "none";
+        fetch('https://store-manager-app.herokuapp.com/api/v2/sales', {
+        headers: { 
+            'x-access-token': localStorage.getItem("token"), 
+            'Content-Type': 'application/json'
+        },
+        method: 'POST',
+        body: JSON.stringify({
+            'title': title,
+            'quantity': quantity
+        })
+        })
+        .then(res => res.json())
+        .then(data => {
+            alert(data.message || data.Message);
+        })
     }
 }
 
