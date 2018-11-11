@@ -42,13 +42,13 @@ window.onload = function getProducts(e) {
 let details = document.getElementById("description");
 let cart_items = document.getElementById("carticon");
 
+
 //function to set modal display to inline if button clicked
 function openModal(product_id) {
     details.innerHTML = '';
     let prod_id = product_id;
     details.style.display = "inline";
     let token = localStorage.getItem('token')
-    let product = JSON.parse(localStorage.getItem("product"));
     fetch(`https://store-manager-app.herokuapp.com/api/v2/products/` + prod_id, {
         headers: { 'x-access-token': token }
     })
@@ -58,6 +58,7 @@ function openModal(product_id) {
             let modalcontent = ``;
             modalcontent += `
                 <div class="modal-content">
+                <h1><span id="closeDetails" class="close">&times;</span></h1>
                 <div class="modal-title">
                     <h1 id="titleprod">${prod.title}</h1>
                 </div>
@@ -91,6 +92,10 @@ function openModal(product_id) {
                 </div>
             </div>`
             details.innerHTML = modalcontent;
+            document.getElementById("closeDetails").addEventListener("click", closeDetails);
+            function closeDetails() {
+                details.style.display = "none";
+            }
         })
 
     //function to close modal if a person clicks outside its main body
@@ -104,23 +109,43 @@ function openModal(product_id) {
 
 function addToCart() {
     let quantity = document.getElementById("quanty").value;
-    let title = document.getElementById("titleprod").innerHTML;
-    let priceprod = document.getElementById("priceprod").innerHTML;
-    let items = document.getElementById("items");
+    if (localStorage.getItem("role") == "true") {
+        alert("This function is preserved for attendants");
+        window.location.reload();
+    }
+    else if (quantity == "") {
+        alert("Enter the quantity to sell");
+    }
+    else {
+        let title = document.getElementById("titleprod").innerHTML;
+        let priceprod = document.getElementById("priceprod").innerHTML;
+        let items = document.getElementById("items");
 
-    item = `
+        item = `
             <li>${title}
-            <span class="price"> Ksh.${priceprod}&nbsp;&nbsp;&nbsp;
-            <span class="quantity"> Ksh.${quantity}&nbsp;&nbsp;&nbsp;
+            <span class="price"> Price: ${priceprod}&nbsp;&nbsp;&nbsp;
+            <span class="quantity"> Quantity: ${quantity}&nbsp;&nbsp;&nbsp;
             <span class="remove-item">x</span>
             </li>
             `
-    items.innerHTML = item;
-    alert("ADDED");
 
+        items.innerHTML = item;
+        localStorage.setItem("cartitem", item);
+        alert("Success");
+    }
 }
 
-function openCart(){
+function openCart() {
     let cart = document.getElementById("cart");
     cart.style.display = "block";
+    window.onclick = function (event) {
+        if (event.target == cart) {
+            cart.style.display = "none";
+        }
+    }
+
+    document.getElementById("closecart").addEventListener("click", closeCart);
+    function closeCart() {
+        cart.style.display = "none";
+    }
 }
