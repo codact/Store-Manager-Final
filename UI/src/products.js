@@ -56,7 +56,6 @@ window.onload = () => {
                     document.getElementById("productstable").innerHTML = output;
                 });
                 localStorage.setItem("allproducts", JSON.stringify(data.products))
-                localStorage.setItem("productcount", data.products.length)
             }
             else {
                 alert("No products to fetch");

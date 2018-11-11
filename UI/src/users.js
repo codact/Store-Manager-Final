@@ -36,7 +36,6 @@ window.onload = () => {
                 `
                     document.getElementById("usersrows").innerHTML = output;
                 });
-                localStorage.setItem("usercount", data.Users.length)
             }
             else {
                 alert("Failed to fetch users");

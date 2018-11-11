@@ -66,7 +66,6 @@ window.onload = () => {
         })
             .then(res => res.json())
             .then(data => {
-                let totalamount = `<tr><td>Total Sales:</td><td>Ksh.${data.Total}</td></tr>`
                 let display = `<tr>
                             <th>
                                 Id
@@ -99,7 +98,6 @@ window.onload = () => {
                                             </tr>`
                     }
                     document.getElementById("attrecords").innerHTML = display;
-                    localStorage.setItem("recordcount", data.Sales.length);
                 })
             });
     }
