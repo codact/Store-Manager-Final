@@ -17,11 +17,12 @@ function logoutFunc() {
     })
         .then(res => res.json())
         .then(data => {
-            alert(data.Message || data.message);
             if (logoutadmin) {
+                localStorage.clear();
                 window.location.replace("../index.html");
             }
             else {
+                localStorage.clear();
                 window.location.replace("index.html");
             }
         })

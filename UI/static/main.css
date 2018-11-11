@@ -14,9 +14,8 @@ a {
 
 body {
     font-family: 'Ubuntu', sans-serif;
-    /* background: url("/UI/images/background.png"); */
+    background: url("/UI/images/background.png");
     background-attachment: fixed;
-
 }
 
 section {
@@ -24,7 +23,7 @@ section {
     display: flex;
     border-radius: 7px;
     background: linear-gradient(to right, rgba(50, 50, 50, 0.6), rgba(50, 50, 50, 0));
-    overflow: auto;
+    min-height: 500px;
 }
 
 h1 {
@@ -81,13 +80,19 @@ Styling for header
     -webkit-box-shadow: 0px 1px 1px #000;
     -moz-box-shadow: 0px 1px 1px #000;
     box-shadow: 0px 0px 10px #000;
+    background: teal;
 }
 
+.nav-menu li a{
+    color: #fff
+}
+.nav-menu li .current {
+    color: rgb(1, 230, 230);
+}
 .logo {
     text-align: center;
     font-family: 'Satisfy', cursive;
     font-size: 250%;
-    color: teal;
 }
 
 .nav-logo {
@@ -96,6 +101,9 @@ Styling for header
     font-family: 'Satisfy', cursive;
     font-size: 200%;
     margin: auto;
+}
+.nav-logo label a{
+    color: #fff;
 }
 
 .nav-menu {
@@ -111,10 +119,6 @@ Styling for header
     margin-right: 40px;
 }
 
-.current {
-    color: rgb(0, 0, 0);
-}
-
 /*
 Styling for body divs
 */
@@ -124,6 +128,7 @@ Styling for body divs
     padding-top: 5%;
     position: fixed;
     width: 100%;
+    overflow: auto;
 }
 
 .welcome-section {
@@ -136,9 +141,9 @@ Styling for body divs
 .signup-section,
 .product-section,
 .prod-section {
-    width: 45%;
+    width: 40%;
     float: right;
-    padding: 4%;
+    margin: 3% 1.5% 3% 3%;
 
 }
 
@@ -214,16 +219,15 @@ Styling for body divs
 }
 
 .products {
-    background-color: rgba(150, 150, 150, 0.4);
+    background: rgba(59, 59, 59, 0.1);
     width: 80%;
     margin-left: 1%;
     border-radius: 7px;
     float: right;
     margin: auto;
-    height: 390px;
+    height: 300px;
     min-height: 390px;
-    overflow-y: auto;
-    overflow-x: hidden;
+    overflow: auto;
 }
 
 .product-image {
@@ -238,6 +242,7 @@ Styling for body divs
     border: thin silver solid;
     margin: 1%;
     padding: 0.2%;
+    border-radius: 5px;
 }
 
 .dashboard {
@@ -261,6 +266,9 @@ Styling for body divs
     border-radius: 7px;
     background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 128, 128, 0.7));
     cursor: pointer;
+}
+.dashboard-content div:hover{
+    box-shadow: 1px 1px 10px black;
 }
 
 .dash-image {
@@ -292,7 +300,7 @@ Styling for body divs
 }
 
 .prof-details {
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(35, 253, 28, 0.1);
     padding: 8%;
     margin-top: -15%;
     border-radius: 10px;
@@ -301,17 +309,22 @@ Styling for body divs
 .user-menu,
 .product-menu {
     margin-top: -2%;
-    width: 100%;
+    margin-left: 25%;
+    width: 70%;
+    float: right;
     height: 350px;
     padding: 3%;
     border-radius: 7px;
-    overflow-y: auto;
-    background: linear-gradient(rgba(2, 2, 2, 0.1), rgba(0, 0, 0, 0.2));
+    overflow: auto;
+    background:rgba(2, 2, 2, 0.2);
 }
-
+.user-menu:hover{
+    box-shadow: 1px 1px 10px #000;
+}
 .user-menu table,
 .product-menu table {
     width: 100%;
+    overflow-x: auto; 
 }
 
 .select-user {
@@ -332,8 +345,18 @@ Styling for body divs
 .categories {
     width: 15%;
     min-width: 130px;
+    border: 1px solid silver;
+    padding: 0% 2% 0% 1%;
+    border-radius: 10px;
 }
-
+#quanty{
+    outline:none;
+    border: none;
+    border-bottom: 1px solid silver;
+}
+#quanty:focus{
+    border-bottom: 1px solid teal;  
+}
 .categories li {
     list-style: none;
     font-size: 70%;
@@ -366,7 +389,7 @@ Styling for body divs
 }
 
 .records {
-    background: rgba(200, 200, 200, 0.5);
+    background: rgba(68, 68, 68, 0.3);
     width: 90%;
     margin: 1% auto;
     overflow-y: auto;
@@ -381,6 +404,7 @@ Styling for body divs
     padding: 1% 2%;
     width: 100%;
     margin: auto;
+    overflow-x: auto; 
 }
 
 .records-table tr td,
@@ -430,18 +454,38 @@ Styling for body divs
     display: flex;
 }
 
-.pic .product-image {
-    width: 100%;
+div .product-image{
+    margin-left: 2.5%;
+    font-size: 400%;
+    text-align: center;
+    width: 30%;
+    text-shadow: 1px 1px 10px #fff;
+    padding: auto;
+    color: rgb(60, 119, 87);
+}
+.product-image label{
+    font-size: 16px;
+}
+ .pic .product-image {
+    font-size: 300%;
+    padding: 20%;
 }
 
 .pic {
     width: 50%;
 }
-
 .detail {
-    width: 50%;
+    width: 100%;
+    margin: auto;
+    text-align: center;
 }
-
+.detail table{
+    margin: auto;
+    text-align: left;
+}
+.detail table tr td{
+    padding: 2%;
+}
 .cart-button {
     border: none;
     font-size: 120%;
@@ -522,7 +566,7 @@ styling for modals
     width: 100%;
     height: 100%;
     overflow-y: hidden;
-    background-color: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.3);
 }
 
 .modal-content {
@@ -531,7 +575,7 @@ styling for modals
     margin: 7% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 350px;
+    width: 320px;
     overflow-y: auto;
 }
 
@@ -572,9 +616,12 @@ styling for modals
 .add {
     float: left;
     width: 20%;
-    border-right: solid 1px silver;
+    padding: 2% 0% 5% 1%;
+    border: solid 1px silver;
     padding-right: 1%;
-    margin: 0% 1%;
+    border-radius: 10px; 
+    position: fixed;
+    margin: -2% 1%;
 }
 .add button{
     width: 90%;
@@ -589,7 +636,11 @@ Styling for display on devices less than 1100px width
         margin-top: 50px;
         padding: 1%;
     }
-
+    .signup-form,
+    .prod-form,
+    .update-form{
+        margin: auto;
+    }
     .main-container {
         flex-direction: column;
         margin-top: 150px;
@@ -611,12 +662,11 @@ Styling for display on devices less than 1100px width
     .signup-section,
     .product-section,
     .prod-section {
-        width: 700px;
+        width: 100%;
         margin: auto;
-        display: none;
+        float: right;
     }
    
-
     .search input {
         width: 50%;
     }
@@ -630,9 +680,11 @@ Styling for display on devices less than 1100px width
         height: 340px;
         margin: auto;
     }
-
-    footer {
-        display: none;
+    .add {
+        width: 80%;
+        margin: auto;
+        position: relative;
+        border:none;
     }
 }
 
@@ -640,8 +692,37 @@ Styling for display on devices less than 1100px width
 Styling for display on devices less than 1100px width 
 */
 
-@media screen and (max-width:600px) {
+@media screen and (max-width:650px) {
 
+    .welcome-section {
+        width: 100%;
+        border-radius: 10px;
+        padding: 0%;
+    }
+    .signup-form,
+    .prod-form,
+    .update-form{
+        width: 100%;
+    }
+    .signup-section,
+    .product-section,
+    .prod-section {
+        width: 100%;
+        float: right;
+        margin: auto 8%;
+        padding: 10%;
+    }
+    .add {
+        width: 100%;
+        margin: auto;
+        position: relative;
+        border:none;
+    }
+    .login-section{
+        width: 100%;
+        border-radius: 10px;
+        padding: 0%;
+    }
     section,
     .dashboard-content {
         flex-direction: column;
@@ -671,7 +752,7 @@ Styling for display on devices less than 1100px width
     }
 
     .search {
-        margin-top: 17px;
+        margin-top: 80px;
     }
 
     .products div {
@@ -680,7 +761,6 @@ Styling for display on devices less than 1100px width
 
     .header {
         flex-direction: column;
-        background: rgb(233, 231, 231);
     }
 
     .nav-logo {
@@ -697,29 +777,24 @@ Styling for display on devices less than 1100px width
         padding-top: 25%;
         position: inherit;
     }
-
-    footer {
-        display: none;
-    }
 }
-
-
 .message {
     color: red;
 }
-
 /* 
 Styling for footer
 */
 
 footer {
     bottom: 0;
-    padding: 1%;
+    padding-top: 1%;
+    padding-bottom: 1%;
     text-align: center;
-    color: teal;
-    background: rgba(150, 150, 150, 0.2);
-    position: fixed;
+    color: white;
+    background: teal;
     left: 0;
     right: 0;
-    margin: auto;
+    width: 100%;
+    position: fixed;
+    margin-top: 2%;
 }

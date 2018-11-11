@@ -1,4 +1,3 @@
-'use-strict';
 
 document.getElementById("loginfrm").addEventListener("submit", loginUser);
 

@@ -1,4 +1,3 @@
-'use-strict';
 
 
 window.onload = () => {
@@ -36,7 +35,6 @@ window.onload = () => {
                 `
                     document.getElementById("usersrows").innerHTML = output;
                 });
-                localStorage.setItem("usercount", data.Users.length)
             }
             else {
                 alert("Failed to fetch users");
@@ -51,17 +49,17 @@ function promoteUser(userId) {
     let user_Id = userId;
     let option = confirm("Do you really want to promote this user?");
     if (option) {
-    fetch(`https://store-manager-app.herokuapp.com/api/v2/users/` + user_Id, {
-        method: 'PUT',
-        headers: {
-            'x-access-token': localStorage.getItem("token")
-        }
-    })
-        .then(res => res.json())
-        .then(data => {  
+        fetch(`https://store-manager-app.herokuapp.com/api/v2/users/` + user_Id, {
+            method: 'PUT',
+            headers: {
+                'x-access-token': localStorage.getItem("token")
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
                 alert(data.message || data.Message);
                 window.location.reload();
-        })
+            })
     }
 }
 
@@ -101,12 +99,14 @@ function signupFunc(e) {
             .then(res => res.json())
             .then(data => {
                 let message = document.getElementById("message");
-                if (data.message == "token invalid") {
-                    alert("You have been logged out for security purposes. Kindly login again")
-                    window.location.replace("../index.html");
+                if (data.Message == "User registered") {
+                    message.innerHTML = data.Message
+                    window.location.reload()
                 }
+                else{
                 message.innerHTML = '';
                 message.innerHTML = data.message || data.Message;
+                }
             })
     }
 }

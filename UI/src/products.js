@@ -1,4 +1,3 @@
-'use-strict';
 
 window.onload = () => {
     document.getElementsByClassName("product-section")[0].style.width = "0%";
@@ -56,7 +55,6 @@ window.onload = () => {
                     document.getElementById("productstable").innerHTML = output;
                 });
                 localStorage.setItem("allproducts", JSON.stringify(data.products))
-                localStorage.setItem("productcount", data.products.length)
             }
             else {
                 alert("No products to fetch");
@@ -83,7 +81,9 @@ function deleteProduct(productId) {
 }
 
 let productfrm = document.getElementById("prodform");
+if (productfrm){
 productfrm.addEventListener("submit", productRegister);
+}
 
 let updatefrm = document.getElementById("updatefrm");
 
@@ -110,9 +110,9 @@ function openUpdateSection(productId) {
             document.getElementById("pdescription").value = data.Product.description;
         });
 }
-
+if (updatefrm){
 updatefrm.addEventListener("submit", updateProduct);
-
+}
 function updateProduct(e) {
     e.preventDefault();
     let title = document.getElementById("ptitle").value,
