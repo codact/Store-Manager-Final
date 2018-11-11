@@ -9,9 +9,6 @@ window.onload = function getProducts(e) {
         .then(res => res.json())
         .then(data => {
             let oneproduct = ''
-            if (data.Message == "token invalid") {
-                window.location.replace("index.html");
-            }
             if (data.products) {
                 data.products.forEach(product => {
                     oneproduct += `
@@ -111,7 +108,7 @@ function addToCart() {
     let quantity = document.getElementById("quanty").value;
     if (localStorage.getItem("role") == "true") {
         alert("This function is preserved for attendants");
-        window.location.reload();
+        details.style.display = "none";
     }
     else if (quantity == "") {
         alert("Enter the quantity to sell");
@@ -132,6 +129,7 @@ function addToCart() {
         items.innerHTML = item;
         localStorage.setItem("cartitem", item);
         alert("Success");
+        details.style.display = "none";
     }
 }
 
