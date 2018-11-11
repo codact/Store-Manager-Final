@@ -63,6 +63,7 @@ function openModal(product_id) {
                         <img class="product-image" src="images/product1.jpg" />
                     </div>
                     <div class="detail">
+                    <span id="messager" style="color: red;"></span>
                         <table>
                             <tr>
                                 <td>Category: </td>
@@ -124,7 +125,7 @@ function makeSale() {
         })
             .then(res => res.json())
             .then(data => {
-                alert(data.message || data.Message);
+                document.getElementById("messager").innerHTML = data.message || data.Message;
             })
     }
 }
