@@ -21,11 +21,6 @@ window.onload = function getProducts(e) {
                     document.getElementById("products").innerHTML = oneproduct
                 });
             }
-            else {
-                alert(data.Message || data.message);
-                window.location.replace("./admin/manage_products.html")
-
-            }
         })
         .catch((err) => {
             console.log(err);

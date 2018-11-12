@@ -140,10 +140,6 @@ function updateProduct(e) {
         })
             .then(res => res.json())
             .then(data => {
-                if (data.message == "token invalid") {
-                    alert("You have been logged out for security purposes. Kindly login again")
-                    window.location.replace("../index.html");
-                }
                 let messagebox = document.getElementById("message-update");
                 messagebox.innerHTML = '';
                 messagebox.innerHTML = data.Message || data.message;
@@ -191,10 +187,6 @@ function productRegister(e) {
         .then(res => res.json())
         .then(data => {
             let message = document.getElementById("message");
-            if (data.message == "token invalid") {
-                alert("You have been logged out for security purposes. Kindly login again")
-                window.location.replace("../index.html");
-            }
             message.innerHTML = '';
             message.innerHTML = data.message || data.Message;
             if (data.Message == "Successfully added"){

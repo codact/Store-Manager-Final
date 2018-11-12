@@ -174,7 +174,7 @@ class Login(Resource):
                                                               password):
                 token = jwt.encode({"email": email, "password": password,
                                     'exp': datetime.datetime.utcnow() +
-                                    datetime.timedelta(minutes=180)},
+                                    datetime.timedelta(minutes=180000)},
                                    app_config["development"].SECRET_KEY, algorithm='HS256')
                 return make_response(jsonify({
                     "message": "Login success",
