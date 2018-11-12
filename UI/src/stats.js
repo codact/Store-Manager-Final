@@ -35,7 +35,7 @@ window.onload = () => {
     })
         .then(res => res.json())
         .then(data => {
-            if (data) {
+            if (data.products.length > 0) {
                 let prodcount = `
                     <i class="dash-image fa fa-shopping-bag"></i>
                     <h1>${data.products.length}</h1>
@@ -49,8 +49,7 @@ window.onload = () => {
                 <i class="dash-image fa fa-shopping-bag"></i>
                 <h1>0</h1>
                 <h1>Products</h1>
-                <h2>View all products in stock and update them</h2>
-            `
+                <h2>View all products in stock and update them</h2>`
                 document.getElementById("productab").innerHTML = count3;
             }
         })
