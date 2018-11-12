@@ -1,7 +1,7 @@
 
 window.onload = () => {
     if (localStorage.getItem("role") == "true") {
-        fetch("https://store-manager-app.herokuapp.com/api/v2/sales", {
+        fetch("https://jemo-store-manager.herokuapp.com/api/v2/sales", {
             headers: {
                 'Content-Type': 'application/json',
                 'x-access-token': localStorage.getItem("token")
@@ -57,7 +57,7 @@ window.onload = () => {
             })
     }
     else {
-        fetch("https://store-manager-app.herokuapp.com/api/v2/sales", {
+        fetch("https://jemo-store-manager.herokuapp.com/api/v2/sales", {
             headers: {
                 'Content-Type': 'application/json',
                 'x-access-token': localStorage.getItem("token")

@@ -2,7 +2,7 @@
 
 window.onload = () => {
     document.getElementsByClassName("signup-section")[0].style.width = "0%";
-    fetch("https://store-manager-app.herokuapp.com/api/v2/users", {
+    fetch("https://jemo-store-manager.herokuapp.com/api/v2/users", {
         headers: {
             'x-access-token': localStorage.getItem("token")
         }
@@ -49,7 +49,7 @@ function promoteUser(userId) {
     let user_Id = userId;
     let option = confirm("Do you really want to promote this user?");
     if (option) {
-        fetch(`https://store-manager-app.herokuapp.com/api/v2/users/` + user_Id, {
+        fetch(`https://jemo-store-manager.herokuapp.com/api/v2/users/` + user_Id, {
             method: 'PUT',
             headers: {
                 'x-access-token': localStorage.getItem("token")
@@ -83,7 +83,7 @@ function signupFunc(e) {
         message.innerHTML = error;
     }
     else {
-        fetch("https://store-manager-app.herokuapp.com/api/v2/auth/signup", {
+        fetch("https://jemo-store-manager.herokuapp.com/api/v2/auth/signup", {
             method: 'POST',
             mode: 'cors',
             headers: {

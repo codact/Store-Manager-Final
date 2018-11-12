@@ -1,6 +1,6 @@
 
 window.onload = function getProducts(e) {
-    fetch('https://store-manager-app.herokuapp.com/api/v2/products', {
+    fetch('https://jemo-store-manager.herokuapp.com/api/v2/products', {
         headers: {
             'x-access-token': localStorage.getItem("token")
         }
@@ -39,7 +39,7 @@ function openModal(product_id) {
     let prod_id = product_id;
     details.style.display = "inline";
     let token = localStorage.getItem('token')
-    fetch(`https://store-manager-app.herokuapp.com/api/v2/products/` + prod_id, {
+    fetch(`https://jemo-store-manager.herokuapp.com/api/v2/products/` + prod_id, {
         headers: { 'x-access-token': token }
     })
         .then(res => res.json())
@@ -103,7 +103,7 @@ function makeSale() {
     }
     else {
         let title = document.getElementById("titleprod").innerHTML;
-        fetch('https://store-manager-app.herokuapp.com/api/v2/sales', {
+        fetch('https://jemo-store-manager.herokuapp.com/api/v2/sales', {
             headers: {
                 'x-access-token': localStorage.getItem("token"),
                 'Content-Type': 'application/json'
