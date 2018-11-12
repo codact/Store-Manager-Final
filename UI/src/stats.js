@@ -1,7 +1,7 @@
 
 window.onload = () => {
 
-    fetch("https://store-manager-app.herokuapp.com/api/v2/users", {
+    fetch("https://jemo-store-manager.herokuapp.com/api/v2/users", {
         headers: {
             'x-access-token': localStorage.getItem("token")
         }
@@ -28,14 +28,14 @@ window.onload = () => {
             }
         })
 
-    fetch("https://store-manager-app.herokuapp.com/api/v2/products", {
+    fetch("https://jemo-store-manager.herokuapp.com/api/v2/products", {
         headers: {
             'x-access-token': localStorage.getItem("token")
         }
     })
         .then(res => res.json())
         .then(data => {
-            if (data) {
+            if (data.products.length > 0) {
                 let prodcount = `
                     <i class="dash-image fa fa-shopping-bag"></i>
                     <h1>${data.products.length}</h1>
@@ -49,13 +49,12 @@ window.onload = () => {
                 <i class="dash-image fa fa-shopping-bag"></i>
                 <h1>0</h1>
                 <h1>Products</h1>
-                <h2>View all products in stock and update them</h2>
-            `
+                <h2>View all products in stock and update them</h2>`
                 document.getElementById("productab").innerHTML = count3;
             }
         })
 
-    fetch("https://store-manager-app.herokuapp.com/api/v2/sales", {
+    fetch("https://jemo-store-manager.herokuapp.com/api/v2/sales", {
         headers: {
             'Content-Type': 'application/json',
             'x-access-token': localStorage.getItem("token")

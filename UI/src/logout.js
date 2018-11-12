@@ -9,7 +9,7 @@ logoutadmin.addEventListener("click", logoutFunc);
 }
 
 function logoutFunc() {
-    fetch("https://store-manager-app.herokuapp.com/api/v2/auth/logout", {
+    fetch("https://jemo-store-manager.herokuapp.com/api/v2/auth/logout", {
         method: 'POST',
         headers: {
             'x-access-token': localStorage.getItem("token")

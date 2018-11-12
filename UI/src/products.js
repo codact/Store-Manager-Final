@@ -1,7 +1,7 @@
 
 window.onload = () => {
     document.getElementsByClassName("product-section")[0].style.width = "0%";
-    fetch("https://store-manager-app.herokuapp.com/api/v2/products", {
+    fetch("https://jemo-store-manager.herokuapp.com/api/v2/products", {
         headers: {
             'x-access-token': localStorage.getItem("token")
         }
@@ -64,7 +64,7 @@ function deleteProduct(productId) {
     let product_Id = productId
     let option = confirm("Do you really want to delete this product?");
     if (option) {
-        fetch(`https://store-manager-app.herokuapp.com/api/v2/products/` + product_Id, {
+        fetch(`https://jemo-store-manager.herokuapp.com/api/v2/products/` + product_Id, {
             method: 'DELETE',
             headers: {
                 'x-access-token': localStorage.getItem("token")
@@ -93,7 +93,7 @@ function openUpdateSection(productId) {
     document.getElementsByClassName("product-section")[0].style.width = "45%";
     let product_Id = productId;
     localStorage.setItem("productId", product_Id)
-    fetch(`https://store-manager-app.herokuapp.com/api/v2/products/` + product_Id, {
+    fetch(`https://jemo-store-manager.herokuapp.com/api/v2/products/` + product_Id, {
         headers: {
             'x-access-token': localStorage.getItem("token")
         }
@@ -122,7 +122,7 @@ function updateProduct(e) {
     product_Id = localStorage.getItem("productId");
     let option = confirm("Do you really want to update this product?");
     if (option) {
-        fetch(`https://store-manager-app.herokuapp.com/api/v2/products/` + product_Id, {
+        fetch(`https://jemo-store-manager.herokuapp.com/api/v2/products/` + product_Id, {
             method: 'PUT',
             mode: 'cors',
             headers: {
@@ -140,10 +140,6 @@ function updateProduct(e) {
         })
             .then(res => res.json())
             .then(data => {
-                if (data.message == "token invalid") {
-                    alert("You have been logged out for security purposes. Kindly login again")
-                    window.location.replace("../index.html");
-                }
                 let messagebox = document.getElementById("message-update");
                 messagebox.innerHTML = '';
                 messagebox.innerHTML = data.Message || data.message;
@@ -172,7 +168,7 @@ function productRegister(e) {
         minimum_stock = document.getElementById("minimum_stock").value,
         description = document.getElementById("description").value,
         token = localStorage.getItem("token");
-    fetch("https://store-manager-app.herokuapp.com/api/v2/products", {
+    fetch("https://jemo-store-manager.herokuapp.com/api/v2/products", {
         method: 'POST',
         mode: 'cors',
         headers: {
@@ -191,10 +187,6 @@ function productRegister(e) {
         .then(res => res.json())
         .then(data => {
             let message = document.getElementById("message");
-            if (data.message == "token invalid") {
-                alert("You have been logged out for security purposes. Kindly login again")
-                window.location.replace("../index.html");
-            }
             message.innerHTML = '';
             message.innerHTML = data.message || data.Message;
             if (data.Message == "Successfully added"){
