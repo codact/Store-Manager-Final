@@ -10,7 +10,7 @@ function loginUser(e) {
 
     e.preventDefault();
 
-    fetch("https://jemo-store-manager.herokuapp.com/api/v2/auth/login", {
+    fetch("https://store-manager-app.herokuapp.com/api/v2/auth/login", {
         method: 'POST',
         mode: 'cors',
         headers: {
@@ -28,7 +28,7 @@ function loginUser(e) {
                 `<p>${data.message || data.Message}</p>`
             if (data.message == 'Login success') {
                 localStorage.setItem("token", data.token);
-                fetch("https://jemo-store-manager.herokuapp.com/api/v2/users", {
+                fetch("https://store-manager-app.herokuapp.com/api/v2/users", {
                     headers: {
                         'x-access-token': data.token
                     }

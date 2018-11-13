@@ -1,7 +1,7 @@
 
 window.onload = () => {
 
-    fetch("https://jemo-store-manager.herokuapp.com/api/v2/users", {
+    fetch("https://store-manager-app.herokuapp.com/api/v2/users", {
         headers: {
             'x-access-token': localStorage.getItem("token")
         }
@@ -54,7 +54,7 @@ window.onload = () => {
             }
         })
 
-    fetch("https://jemo-store-manager.herokuapp.com/api/v2/sales", {
+    fetch("https://store-manager-app.herokuapp.com/api/v2/sales", {
         headers: {
             'Content-Type': 'application/json',
             'x-access-token': localStorage.getItem("token")
