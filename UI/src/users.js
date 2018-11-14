@@ -1,15 +1,13 @@
-
-
 window.onload = () => {
     document.getElementsByClassName("signup-section")[0].style.width = "0%";
     fetch("https://store-manager-app.herokuapp.com/api/v2/users", {
         headers: {
-            'x-access-token': localStorage.getItem("token")
+            "x-access-token": localStorage.getItem("token")
         }
     })
-        .then(res => res.json())
-        .then(data => {
-            if (data.Message == "Success") {
+        .then((res) => res.json())
+        .then((data) => {
+            if (data.Message === "Success") {
                 let output = `<tr>
                 <th>
                     Id
@@ -24,7 +22,7 @@ window.onload = () => {
                     Promote User
                 </th>
                 </tr>`;
-                data.Users.forEach(user => {
+                data.Users.forEach((user) => {
                     output += `
                     <tr>
                         <td>${user.id}</td>
@@ -32,7 +30,7 @@ window.onload = () => {
                         <td>${user.admin}</td>
                         <td><button class="button" onclick="promoteUser(${user.id})"><i class="fa fa-edit" id="updatebtn"></i></button></td>
                     </tr>
-                `
+                `;
                     document.getElementById("usersrows").innerHTML = output;
                 });
             }
@@ -40,26 +38,23 @@ window.onload = () => {
                 alert("Failed to fetch users");
             }
         });
-}
-
-let signupfrm = document.getElementById("signupfrm");
-signupfrm.addEventListener("submit", signupFunc);
+};
 
 function promoteUser(userId) {
-    let user_Id = userId;
+    let currentuserId = userId;
     let option = confirm("Do you really want to promote this user?");
     if (option) {
-        fetch(`https://store-manager-app.herokuapp.com/api/v2/users/` + user_Id, {
-            method: 'PUT',
+        fetch("https://store-manager-app.herokuapp.com/api/v2/users/" + currentuserId, {
+            method: "PUT",
             headers: {
-                'x-access-token': localStorage.getItem("token")
+                "x-access-token": localStorage.getItem("token")
             }
         })
-            .then(res => res.json())
-            .then(data => {
+            .then((res) => res.json())
+            .then((data) => {
                 alert(data.message || data.Message);
                 window.location.reload();
-            })
+            });
     }
 }
 
@@ -71,24 +66,24 @@ function openSignupForm() {
     document.getElementsByClassName("signup-section")[0].style.width = "45%";
 }
 
-function signupFunc(e) {
+document.getElementById("signupfrm").onsubmit = function signupFunc(e) {
     e.preventDefault();
-    email = document.getElementById("email").value;
-    password = document.getElementById("password").value;
-    password2 = document.getElementById("password2").value;
-    role = document.getElementById("role").value;
-    token = localStorage.getItem("token");
-    if (password != password2) {
-        error = "Passwords must match";
-        message.innerHTML = error;
+    let email = document.getElementById("email").value,
+        password = document.getElementById("password").value,
+        password2 = document.getElementById("password2").value,
+        role = document.getElementById("role").value,
+        token = localStorage.getItem("token");
+    if (password !== password2) {
+        let error = "Passwords must match";
+        document.getElementById("message").innerHTML = error;
     }
     else {
         fetch("https://store-manager-app.herokuapp.com/api/v2/auth/signup", {
-            method: 'POST',
-            mode: 'cors',
+            method: "POST",
+            mode: "cors",
             headers: {
-                'Content-Type': 'application/json',
-                'x-access-token': token
+                "Content-Type": "application/json",
+                "x-access-token": token
             },
             body: JSON.stringify({
                 "email": email,
@@ -99,13 +94,12 @@ function signupFunc(e) {
             .then(res => res.json())
             .then(data => {
                 let message = document.getElementById("message");
-                if (data.Message == "User registered") {
-                    message.innerHTML = data.Message
-                    window.location.reload()
+                if (data.Message === "User registered") {
+                    message.innerHTML = data.Message;
+                    window.location.reload();
                 }
-                else{
-                message.innerHTML = '';
-                message.innerHTML = data.message || data.Message;
+                else {
+                    message.innerHTML = data.message || data.Message;
                 }
             })
     }
