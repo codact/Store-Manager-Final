@@ -1,8 +1,8 @@
-# Store-Manager-Final
-
 [![Maintainability](https://api.codeclimate.com/v1/badges/8650e9419ac853a984ec/maintainability)](https://codeclimate.com/github/codeMarble254/Store-Manager-Final/maintainability)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/8700ab1cc8d0478eb11de8789a00f7cf)](https://app.codacy.com/app/codeMarble254/Store-Manager-Final?utm_source=github.com&utm_medium=referral&utm_content=codeMarble254/Store-Manager-Final&utm_campaign=Badge_Grade_Dashboard)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+# Store-Manager-Final
 
 This is the complete store manager application 
 
