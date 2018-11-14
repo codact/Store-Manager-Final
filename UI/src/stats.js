@@ -28,14 +28,14 @@ window.onload = () => {
             }
         })
 
-    fetch("https://jemo-store-manager.herokuapp.com/api/v2/products", {
+    fetch("https://store-manager-app.herokuapp.com/api/v2/products", {
         headers: {
             'x-access-token': localStorage.getItem("token")
         }
     })
         .then(res => res.json())
         .then(data => {
-            if (data.products.length > 0) {
+            if (data.products) {
                 let prodcount = `
                     <i class="dash-image fa fa-shopping-bag"></i>
                     <h1>${data.products.length}</h1>
