@@ -1,4 +1,7 @@
 # Store-Manager-Final
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/8700ab1cc8d0478eb11de8789a00f7cf)](https://app.codacy.com/app/codeMarble254/Store-Manager-Final?utm_source=github.com&utm_medium=referral&utm_content=codeMarble254/Store-Manager-Final&utm_campaign=Badge_Grade_Dashboard)
+
 This is the complete store manager application 
 
 ## Access the website here
