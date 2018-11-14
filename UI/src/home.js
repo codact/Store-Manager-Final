@@ -74,7 +74,7 @@ function openModal(product_id) {
                             </tr>
 
                         </table>
-                        <h5>Enter sale quantity</h5> <input required id="quanty" type="number" size=10 placeholder="Quantity"><br><br><br>
+                        <h5>Enter sale quantity</h5> <input id="quanty" type="search" size=10 placeholder="Quantity"><br><br><br>
                         <button class="button" onclick="makeSale()" id="proceed">Proceed&nbsp;<i class="fa fa-cart-plus"></i></button>
                     </div>
                 </div>
@@ -96,7 +96,7 @@ function openModal(product_id) {
 }
 
 function makeSale() {
-    let quantity = Number.parseInt(document.getElementById("quanty").value);
+    let quantity = document.getElementById("quanty").value;
     if (localStorage.getItem("role") == "true") {
         alert("This function is preserved for attendants");
         details.style.display = "none";
