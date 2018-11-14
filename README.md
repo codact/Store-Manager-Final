@@ -1,18 +1,20 @@
 # Store-Manager-Final
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/8650e9419ac853a984ec/maintainability)](https://codeclimate.com/github/codeMarble254/Store-Manager-Final/maintainability)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/8700ab1cc8d0478eb11de8789a00f7cf)](https://app.codacy.com/app/codeMarble254/Store-Manager-Final?utm_source=github.com&utm_medium=referral&utm_content=codeMarble254/Store-Manager-Final&utm_campaign=Badge_Grade_Dashboard)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 This is the complete store manager application 
 
 ## Access the website here
 <https://codemarble254.github.io/Store-Manager-Final/UI/>
 
-### To login, use the default admin credentials
+## To login, use the default admin credentials
 
     1. email: admin@gmail.com
     2. password: admin
 
-### Features
+## Features
 1. Login
     ```
     A user(store attendant/owner can login to the system)
@@ -27,7 +29,8 @@ This is the complete store manager application
     ```
 4. Make a sale
     ```
-    Only registered attendants can make sales in the system. This can be done by clicking on a product and entering the quantity to sell
+    Only registered attendants can make sales in the system. 
+    This can be done by clicking on a product and entering the quantity to sell
     ```
 5. View sale records
     ```
@@ -57,9 +60,9 @@ This is the complete store manager application
     5. Promote users to administrators
     ```
 
-### Resources
+## Resources
 <https://www.javascript.com/>  
 <https://developer.mozilla.org/en-US/docs/Web/JavaScript>
-### Acknowledgements
+## Acknowledgements
     1. Andela Kenya
     2. My colleagues and group mates
