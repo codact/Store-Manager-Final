@@ -1,6 +1,7 @@
-if (localStorage.getItem("role") == "true") {
+if (localStorage.getItem("role") === "true") {
     let adminopt = document.getElementById("adminopt");
-    admin = `<a href="admin/dashboard.html">Admin&nbsp;<i class="fa fa-sign-in-alt"></i></a>`
+    let admin = `<a href="admin/dashboard.html">
+    Admin&nbsp;<i class="fa fa-sign-in-alt"></i></a>`;
     adminopt.innerHTML = admin;
     let salerecs = document.getElementById("salerecs");
     salerecs.style.display = "none";

@@ -1,16 +1,16 @@
 
 window.onload = () => {
-    if (localStorage.getItem("role") == "true") {
+    if (localStorage.getItem("role") === "true") {
         fetch("https://store-manager-app.herokuapp.com/api/v2/sales", {
             headers: {
-                'Content-Type': 'application/json',
-                'x-access-token': localStorage.getItem("token")
+                "Content-Type": "application/json",
+                "x-access-token": localStorage.getItem("token")
             }
         })
-            .then(res => res.json())
-            .then(data => {
-                if (data.Message == "Success") {
-                    let total = `<tr><td><b>Total Sales:</b></td><td>Ksh.${data.Total}</td></tr>`
+            .then((res) => res.json())
+            .then((data) => {
+                if (data.Message === "Success") {
+                    let total = `<tr><td><b>Total Sales:</b></td><td>Ksh.${data.Total}</td></tr>`;
                     let output = `<tr>
                 <th>
                     Id
@@ -37,8 +37,8 @@ window.onload = () => {
                     Delete
                 </th>
 
-            </tr>`
-                    data.Sales.forEach(sale => {
+            </tr>`;
+                    data.Sales.forEach((sale) => {
                         output +=
                             `<tr>
                 <td>${sale.id}</td>
@@ -54,17 +54,17 @@ window.onload = () => {
 
                     document.getElementById("attrecords").innerHTML = output + total;
                 }
-            })
+            });
     }
     else {
         fetch("https://store-manager-app.herokuapp.com/api/v2/sales", {
             headers: {
-                'Content-Type': 'application/json',
-                'x-access-token': localStorage.getItem("token")
+                "Content-Type": "application/json",
+                "x-access-token": localStorage.getItem("token")
             }
         })
-            .then(res => res.json())
-            .then(data => {
+            .then((res) => res.json())
+            .then((data) => {
                 let display = `<tr>
                             <th>
                                 Id
@@ -82,13 +82,13 @@ window.onload = () => {
                                 Subtotal (Ksh.)
                                 </th>
                                 </tr>`
-                let finaltotal = 0
-                data.Sales.forEach(onesale => {
-                    if (data.Message != "Success") {
-                        alert(data.Message || data.message)
+                let finaltotal = 0;
+                data.Sales.forEach((onesale) => {
+                    if (data.Message !== "Success") {
+                        alert(data.Message || data.message);
                     }
-                    if (onesale.email == localStorage.getItem("email")) {
-                        finaltotal += onesale.subtotals
+                    if (onesale.email === localStorage.getItem("email")) {
+                        finaltotal += onesale.subtotals;
                         display +=
                             `<tr>
                                             <td>${onesale.id}</td>
@@ -99,28 +99,28 @@ window.onload = () => {
                                             </tr>`
                     }
                 })
-                let grandtotal = `<tr><td><b>Grand Total: </b></td><td>${finaltotal}</td></tr>`
+                let grandtotal = `<tr><td><b>Grand Total: </b></td><td>${finaltotal}</td></tr>`;
                 document.getElementById("attrecords").innerHTML = display + grandtotal;
 
             });
     }
-}
+};
 
-function searchSale(){
+function searchSale() {
     let input, filter, table, tr, td, i;
-  input = document.getElementById("input");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("attrecords");
-  tr = table.getElementsByTagName("tr");
+    input = document.getElementById("input");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("attrecords");
+    tr = table.getElementsByTagName("tr");
 
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[1];
-    if (td) {
-      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    } 
-  }
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[1];
+        if (td) {
+            if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
+    }
 }
