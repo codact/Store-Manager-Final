@@ -1,5 +1,5 @@
+let signup_section = document.getElementById("signup-section");
 window.onload = () => {
-    document.getElementsByClassName("signup-section")[0].style.width = "0%";
     fetch("https://store-manager-app.herokuapp.com/api/v2/users", {
         headers: {
             "x-access-token": localStorage.getItem("token")
@@ -58,14 +58,18 @@ function promoteUser(userId) {
     }
 }
 
-
 function openSignupForm() {
-    document.getElementsByClassName("user-menu")[0].style.width = "56%";
-    signupfrm.style.display = "block";
-    signupfrm.style.width = "100%";
-    document.getElementsByClassName("signup-section")[0].style.width = "45%";
+    signup_section.style.display = "block";
+    document.getElementById("closeDetails").onclick =
+        function closeDetails() {
+            signup_section.style.display = "none";
+        }
+    window.onclick = function (event) {
+        if (event.target === signup_section) {
+            signup_section.style.display = "none";
+        }
+    }
 }
-
 document.getElementById("signupfrm").onsubmit = function signupFunc(e) {
     e.preventDefault();
     let email = document.getElementById("email").value,
@@ -95,10 +99,12 @@ document.getElementById("signupfrm").onsubmit = function signupFunc(e) {
             .then(data => {
                 let message = document.getElementById("message");
                 if (data.Message === "User registered") {
+                    message.className = "success";
                     message.innerHTML = data.Message;
                     window.location.reload();
                 }
                 else {
+                    message.className = "error";
                     message.innerHTML = data.message || data.Message;
                 }
             })

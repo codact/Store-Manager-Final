@@ -26,9 +26,6 @@
             <div class="nav-menu">
                 <ul>
                     <li><a href="dashboard.html">Dashboard&nbsp;<i class="fa fa-home"></i></a></li>
-                    <li><a href="manage_users.html">Attendants&nbsp;<i class="fa fa-user"></i></a></li>
-                    <li><a href="manage_products.html" class="current">Products&nbsp;<i class="fa fa-shopping-bag"></i></a></li>
-                    <li><a href="manage_records.html">Records&nbsp;<i class="fa fa-database"></i></a></li>
                     <li><a style="cursor:pointer;" id="logoutadmin">Logout&nbsp;<i class="fa fa-sign-out-alt"></i></a></li>
                 </ul>
             </div>
@@ -37,58 +34,79 @@
     <div class="main-container">
 
         <div class="add">
-            <button onclick="openProductForm()" class="button">Add Product&nbsp;</button>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Aliquid nobis qui, illo voluptate facere aspernatur
-                impedit fugit necessitatibus animi, iusto veniam quos eum! Nobis mollitia,
-                in repudiandae voluptate incidunt facere?Lorem ipsum dolor sit
-                amet consectetur adipisicing elit.  ipsum dolor sit
-                amet consectetur.</p>
+            <ul>
+                <li>
+                    <button onclick="openProductForm()" class="button">Add Product&nbsp;&nbsp;&nbsp;<i class="fa fa-plus"></i></button>
+                </li>
+                <li>
+                    <a href="manage_users.html"><button class="button">Attendants&nbsp;&nbsp;&nbsp;<i class="fa fa-user"></i></button></a>
+                </li>
+                <li>
+                    <a href="manage_products.html"> <button class="current button">Products&nbsp;&nbsp;&nbsp;<i class="fa fa-shopping-bag"></i></button></a>
+                </li>
+                <li>
+                    <a href="manage_records.html"><button class="button">Records&nbsp;&nbsp;&nbsp;<i class="fa fa-database"></i></button></a>
+                </li>
+            </ul>
+
         </div>
         <div class="product-menu">
-            <a href="dashboard.html"><i class="fa fa-arrow-left"></i></a>
-            <div class="prods">
-                <h1>Available products</h1>
-                <hr>
-                <table id="productstable" class="prods-table">
+            <h1>Available products</h1>
+            <hr>
+            <table id="productstable" class="prods-table">
 
 
-                </table>
-            </div>
+            </table>
         </div>
 
         <div class="product-section">
-            <form class="prod-form" id="prodform">
-                <h1>Create</h1>
-                <label id="message" style="color: red"></label><br><br>
-                <input id="title" type="text" placeholder="Title"><br>
-                <input id="price" type="text" placeholder="Price">
-                <input id="quantity" type="text" placeholder="Quantity"><br>
-                <input id="minimum_stock" type="text" placeholder="Minimum Stock"><br>
-                <input id="description" type="text" placeholder="Description"><br>
-                <label>Category:&nbsp;</label><select required id="category">
-                    <option>Cars</option>
-                    <option>Clothes</option>
-                    <option>Food</option>
-                </select><br><br>
-                <button type="submit" class="button">Create</button><br><br>
-            </form>
+            <div id="registration-section">
+                <form class="prod-form" id="prodform">
+                    <h1><span id="closeDetails" class="close">&times;</span></h1>
+                    <h1>Create Item</h1>
+                    <label id="message"></label><br><br>
+                    <h2 class="labels">Title</h2>
+                    <input id="title" type="text">
+                    <h2 class="labels">Price</h2>
+                    <input id="price" type="text">
+                    <h2 class="labels">Quantity</h2>
+                    <input id="quantity" type="text">
+                    <h2 class="labels">Minimum Stock</h2>
+                    <input id="minimum_stock" type="text">
+                    <h2 class="labels">Description</h2>
+                    <input id="description" type="text">
+                    <label class="labels">Category:&nbsp;&nbsp;&nbsp;</label><select required id="category">
+                        <option>Cars</option>
+                        <option>Clothes</option>
+                        <option>Food</option>
+                    </select><br><br>
+                    <button type="submit" class="button">Create</button><br><br>
+                </form>
+            </div>
 
-            <form class="update-form" id="updatefrm">
-                <p>Update Product</p>
-                <label id="message-update" style="color:red"></label><br><br>
-                <input id="ptitle" type="text" placeholder="Title"><br>
-                <input id="pprice" type="text" placeholder="Price">
-                <input id="pquantity" type="text" placeholder="Quantity"><br>
-                <input id="pminimum_stock" type="text" placeholder="Minimum Stock"><br>
-                <input id="pdescription" type="text" placeholder="Description"><br>
-                <label>Category:&nbsp;</label><select required id="pcategory">
-                    <option>Cars</option>
-                    <option>Clothes</option>
-                    <option>Food</option>
-                </select><br><br>
-                <button type="submit" class="button">Update</button><br><br>
-            </form>
+            <div id="update-section">
+                <form class="update-form" id="updatefrm">
+                    <h1><span id="closeDetails2" class="close">&times;</span></h1>
+                    <h1>Update Product</h1>
+                    <label id="update-message" class="error"></label><br><br>
+                    <h2 class="labels">Title</h2>
+                    <input id="ptitle" type="text">
+                    <h2 class="labels">Price</h2>
+                    <input id="pprice" type="text">
+                    <h2 class="labels">Quantity</h2>
+                    <input id="pquantity" type="text">
+                    <h2 class="labels">Minimum Stock</h2>
+                    <input id="pminimum_stock" type="text">
+                    <h2 class="labels">Description</h2>
+                    <input id="pdescription" type="text">
+                    <label class="labels">Category:&nbsp;&nbsp;&nbsp;</label><select required id="pcategory">
+                        <option>Cars</option>
+                        <option>Clothes</option>
+                        <option>Food</option>
+                    </select><br><br>
+                    <button type="submit" class="button">Update</button><br><br>
+                </form>
+            </div>
         </div>
     </div>
     <footer>

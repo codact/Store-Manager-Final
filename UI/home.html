@@ -18,10 +18,13 @@
 
 <body>
     <header>
-    <script src="src/loginstatus.js"></script>
+        <script src="src/loginstatus.js"></script>
         <div class="header">
             <div class="nav-logo">
                 <label><a href="#"><i class="fa fa-american-sign-language-interpreting"></i>&nbsp;StoreManager</a></label>
+            </div>
+            <div class="search">
+                <input type="search" id="input" onkeyup="searchProduct()" placeholder="Search product" /><br><br>
             </div>
             <div class="nav-menu">
                 <ul>
@@ -36,67 +39,63 @@
             </div>
         </div>
     </header>
-    <div class="main-body">
-        <div class="search">
-            <input type="search" id="input" onkeyup="searchProduct()" placeholder="Search product" /><br><br>
+
+    <br>
+    <div class="main-section">
+        <div class="categories">
+            <h2>Categories</h2>
+            <hr>
+            <ul>
+                <li>
+                    <a href="#" id="all">All</a>
+                </li>
+                <li>
+                    <a href="#clothes" id="clothes">Clothes</a>
+                </li>
+                <li>
+                    <a href="#furniture">Furniture</a>
+                </li>
+                <li>
+                    <a href="#electronics">Electronics</a>
+                </li>
+
+                <li>
+                    <a href="#cars">Cars</a>
+                </li>
+
+                <li>
+                    <a href="#mobile"> mobile phones</a>
+                </li>
+                <li>
+                    <a href="#camera">cameras</a>
+                </li>
+                <li>
+                    <a href="#cars">Cars</a>
+                </li>
+                <li>
+                    <a href="#helicopters">Telicopters</a>
+                </li>
+                <li>
+                    <a href="#toys">Toys</a>
+                </li>
+            </ul>
         </div>
-        <br>
-        <div class="main-section">
-            <div class="categories">
-                <h2>Categories</h2>
-                <hr>
-                <ul>
-                    <li>
-                        <a href="#" id="all">All</a>
-                    </li>
-                    <li>
-                        <a href="#clothes" id="clothes">Clothes</a>
-                    </li>
-                    <li>
-                        <a href="#furniture">Furniture</a>
-                    </li>
-                    <li>
-                        <a href="#electronics">Electronics</a>
-                    </li>
 
-                    <li>
-                        <a href="#cars">Cars</a>
-                    </li>
+        <div class="description-modal" id="description">
 
-                    <li>
-                        <a href="#mobile"> mobile phones</a>
-                    </li>
-                    <li>
-                        <a href="#camera">cameras</a>
-                    </li>
-                    <li>
-                        <a href="#cars">Cars</a>
-                    </li>
-                    <li>
-                        <a href="#helicopters">Telicopters</a>
-                    </li>
-                    <li>
-                        <a href="#toys">Toys</a>
-                    </li>
-                </ul>
-            </div>
+        </div>
 
-            <div class="description-modal" id="description">
+        <div class="products" id="products">
 
-            </div>
-
-            <div class="products" id="products">
-
-            </div>
         </div>
     </div>
-    <footer>
-        &copy;codeMarble
-    </footer>
     <script src="src/nav.js"></script>
     <script src="src/home.js"></script>
     <script src="src/logout.js"></script>
 </body>
 
+<footer>
+        &copy;codeMarble
+    </footer>
 
 </html>

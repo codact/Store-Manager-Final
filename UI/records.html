@@ -23,6 +23,9 @@
             <div class="nav-logo">
                 <label><a href="home.html"><i class="fa fa-american-sign-language-interpreting"></i>&nbsp;StoreManager</a></label>
             </div>
+            <div class="search">
+                <input type="search" id="input" onkeyup="searchSale()" placeholder="Search sale by product title" /><br><br>
+            </div>
 
             <div class="nav-menu">
                 <ul>
@@ -37,16 +40,11 @@
             </div>
         </div>
     </header>
-    <div class="main-body">
-        <div class="search">
-            <input type="search" id="input" onkeyup="searchSale()" placeholder="Search sale by product title" /><br><br>
-        </div>
-        <div class="records">
-            <h1>My Sales Records</h1>
-            <table class="records-table" id="attrecords">
+    <div class="records">
+        <h1>My Sales Records</h1>
+        <table class="records-table" id="attrecords">
 
-            </table>
-        </div>
+        </table>
     </div>
     <footer>
         &copy;codeMarble

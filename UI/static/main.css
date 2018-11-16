@@ -21,7 +21,7 @@ section {
     width: 100%;
     display: flex;
     border-radius: 7px;
-    background: linear-gradient(to right, rgba(50, 50, 50, 0.6), rgba(50, 50, 50, 0));
+    background: linear-gradient( rgba(141, 141, 141, 0.6), rgba(50, 50, 50, 0));
     min-height: 500px;
 }
 
@@ -96,7 +96,7 @@ Styling for header
 
 .nav-logo {
     float: left;
-    width: 20%;
+    width: 30%;
     font-family: 'Satisfy', cursive;
     font-size: 200%;
     margin: auto;
@@ -107,7 +107,7 @@ Styling for header
 
 .nav-menu {
     float: right;
-    width: 80%;
+    width: 70%;
     display: flex;
     justify-content: flex-end;
 }
@@ -125,7 +125,6 @@ Styling for body divs
 
 .main-body {
     padding-top: 5%;
-    position: fixed;
     width: 100%;
     overflow: auto;
 }
@@ -137,7 +136,6 @@ Styling for body divs
 }
 
 .login-section,
-.signup-section,
 .product-section,
 .prod-section {
     width: 40%;
@@ -149,11 +147,8 @@ Styling for body divs
 .main-container {
     margin-top: -10%;
 }
-.signup-form,
-.login-form,
-.prod-form,
-.update-form{
-    width: 70%;
+.login-form{
+    width: 60%;
     text-align: center;
     margin: auto;
     padding: 0% 6%;
@@ -161,21 +156,31 @@ Styling for body divs
     border: solid 1px grey;
     box-shadow: 0px 0px 5px rgb(80, 80, 80);
     border-radius: 7px;
+    height: 100%;
 }
-
-.signup-form {
-    padding: 2%;
-    width: 100%;
-    margin: auto;
-    margin-top: -15%;
+.signupsection, #registration-section, #update-section{
     display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    background: rgba(0, 0, 0, 0.7)
 }
-.prod-form, .update-form {
-    padding: 2%;
-    width: 100%;
-    margin: auto;
-    margin-top:-20%;
-    display: none;
+.signup-form, .prod-form, .update-form{
+    display: block;
+    z-index: 1;
+    border-radius: 10px;
+    background-color: #fefefe;
+    margin: 3% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 26%;
+    overflow-y: auto;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
 }
 .signup-form input,
 .login-form input,
@@ -183,16 +188,19 @@ Styling for body divs
 .update-form input {
     border: none;
     border-bottom: solid 1px silver;
-    margin-bottom: 12%;
-    width: 70%;
+    margin-bottom: 7%;
+    margin-left: 1.5%;
+    width: 90%;
     padding-top: 4%;
     font-size: 90%;
 }
-.update-form input {
-    border: none;
-    border-bottom: solid 1px silver;
-    margin-bottom: 6%;
+.login-form input{
     width: 80%;
+    padding: 3% 0;
+    margin: 6% 0;
+}
+.update-form input {
+    margin-bottom: 6%;
     padding-top: 1%;
     font-size: 90%;
 }
@@ -205,8 +213,8 @@ Styling for body divs
 }
 .signup-form input{
     width: 70%;
-    margin-bottom: 2%;
-    margin-right: 2%;
+    margin: -2% 2% 0.5% 5%;
+    
 }
 
 .signup-form input:focus,
@@ -218,15 +226,12 @@ Styling for body divs
 }
 
 .products {
-    background: rgba(59, 59, 59, 0.1);
+    background: linear-gradient(rgba(212, 208, 208, 0.5), #fff);
     width: 80%;
-    margin-left: 1%;
     border-radius: 7px;
     float: right;
     margin: auto;
-    height: 300px;
-    min-height: 390px;
-    overflow: auto;
+    margin-left: 20%;
 }
 
 .product-image {
@@ -279,7 +284,9 @@ Styling for body divs
 .main-container {
     width: 100%;
     display: flex;
-    min-height: 100%;
+    margin-bottom: 100px;
+    margin-top: 4%;
+    overflow: auto;
 }
 
 .main-container {
@@ -293,11 +300,21 @@ Styling for body divs
 .main-sec {
     margin-top: 55px;
 }
-
+.main-profile{
+    margin-top: 5%;
+}
 .profile {
-    text-align: center
+    text-align: center;
+    margin: auto;
+    padding: 2% 10%;
+    width: 50%;
 }
 
+#profile{
+    border: solid 1px silver;
+    background: linear-gradient(rgba(255, 255, 255, 0.5),rgba(0, 128, 128, 0.3));
+    border-radius: 10px;
+}
 .prof-details {
     background: rgba(35, 253, 28, 0.1);
     padding: 8%;
@@ -309,16 +326,11 @@ Styling for body divs
 .product-menu {
     margin-top: -2%;
     margin-left: 25%;
-    width: 70%;
+    width: 65%;
     float: right;
-    height: 350px;
     padding: 3%;
     border-radius: 7px;
-    overflow: auto;
     background:rgba(2, 2, 2, 0.2);
-}
-.user-menu:hover{
-    box-shadow: 1px 1px 10px #000;
 }
 .user-menu table,
 .product-menu table {
@@ -342,11 +354,12 @@ Styling for body divs
 }
 
 .categories {
-    width: 15%;
+    width: 14%;
     min-width: 130px;
     border: 1px solid silver;
     padding: 0% 2% 0% 1%;
     border-radius: 10px;
+    position: fixed;
 }
 #quanty{
     outline:none;
@@ -364,21 +377,22 @@ Styling for body divs
 }
 
 .search {
-    width: 100%;
-    display: flex;
-}
+    width: 30%;
+    margin:auto;
 
+}
 .search input {
     border: solid 1px silver;
-    padding: 1%;
+    padding: 3%;
     border-radius: 5px;
-    width: 30%;
+    width: 90%;
     margin: auto;
+    float: right;
 }
 
 .search input:focus {
     outline: none;
-    width: 36%;
+    width: 100%;
     border: solid 1px teal;
     -webkit-animation: all 1s ease-in-out;
     transition: all 0.6s ease-in-out;
@@ -389,11 +403,13 @@ Styling for body divs
 
 .records {
     background: rgba(68, 68, 68, 0.3);
-    width: 90%;
-    margin: 1% auto;
-    overflow-y: auto;
-    height: 400px;
+    margin: 5% auto;
+    height: 100%;
     border-radius: 5px;
+    width: 85%;
+    padding: 3%;
+    border-radius: 7px;
+    background:rgba(2, 2, 2, 0.2);
 
 }
 
@@ -412,6 +428,9 @@ Styling for body divs
     text-align: center;
     border: solid 1px white;
     padding: 7px;
+    border: none;
+    border-left: 1px solid silver;
+    border-bottom: 1px solid silver;
     border-radius: 3px;
 }
 .prods-table tr td{
@@ -489,17 +508,6 @@ div .product-image{
 .detail table tr td{
     padding: 2%;
 }
-.cart-button {
-    border: none;
-    font-size: 120%;
-    margin: auto;
-    color: white;
-    cursor: pointer;
-    float: right;
-    margin-right: 4%;
-    background: teal;
-    border-radius: 5px;
-}
 
 /*
 Styling for button
@@ -568,7 +576,6 @@ styling for modals
     top: 0;
     width: 100%;
     height: 100%;
-    overflow-y: hidden;
     background: rgba(0, 0, 0, 0.3);
 }
 
@@ -576,10 +583,12 @@ styling for modals
     border-radius: 10px;
     background-color: #fefefe;
     margin: 7% auto;
-    padding: 20px;
+    padding: 1.5%;
     border: 1px solid #888;
-    width: 320px;
-    overflow-y: auto;
+    width: 300px;
+    overflow: hidden;
+    animation-name: animatetop;
+    animation-duration: 0.4s
 }
 
 .modal-content ol li {
@@ -619,15 +628,18 @@ styling for modals
 .add {
     float: left;
     width: 20%;
-    padding: 2% 0% 5% 1%;
-    border: solid 1px silver;
-    padding-right: 1%;
-    border-radius: 10px; 
+    margin-top: 0;
+    padding-right: 2%;
+    border-right: solid 1px silver; 
+    padding-left: 0;
     position: fixed;
-    margin: -2% 1%;
 }
-.add button{
-    width: 90%;
+.add ul li{
+    list-style: none;
+}
+.add ul li .button{
+    margin: 6%;
+    width: 80%;
 }
 
 /* 
@@ -639,10 +651,10 @@ Styling for display on devices less than 1100px width
         margin-top: 50px;
         padding: 1%;
     }
-    .signup-form,
     .prod-form,
     .update-form{
         margin: auto;
+        margin-top: 10%;
     }
     .main-container {
         flex-direction: column;
@@ -654,15 +666,8 @@ Styling for display on devices less than 1100px width
         margin-top: 10%;
     }
 
-    .signup-form,
-    .prod-form,
-    .update-form{
-        margin-top: 0%;
-    }
-
     .user-menu,
     .product-menu,
-    .signup-section,
     .product-section,
     .prod-section {
         width: 100%;
@@ -679,9 +684,12 @@ Styling for display on devices less than 1100px width
     }
 
     .dashboard-content div {
-        width: 300px;
-        height: 340px;
-        margin: auto;
+        width: 30%;
+        height: 260px;
+        margin: 2%;
+    }
+    .signup-form{
+        width: 60%;
     }
     .add {
         width: 80%;
@@ -696,18 +704,23 @@ Styling for display on devices less than 1100px width
 */
 
 @media screen and (max-width:650px) {
-
+    html, body, h1, p{
+        font-size: 15px;
+    }
     .welcome-section {
         width: 100%;
         border-radius: 10px;
         padding: 0%;
     }
-    .signup-form,
-    .prod-form,
-    .update-form{
-        width: 100%;
+    .user-menu table, .records table, .prods table{
+        font-size: 10px;
     }
-    .signup-section,
+    .prod-form,
+    .update-form,
+    .signup-form{
+        width: 60%;
+        margin-top: 10%;
+        }
     .product-section,
     .prod-section {
         width: 100%;
@@ -732,9 +745,10 @@ Styling for display on devices less than 1100px width
     }
 
     .dashboard-content div {
-        width: 300px;
-        margin: auto;
+        width: 100%;
+        margin-bottom: 10%;
     }
+
 
     .select-user {
         flex-direction: column;
@@ -746,8 +760,6 @@ Styling for display on devices less than 1100px width
     }
 
     .login-form,
-    .signup-form,
-    .prod-form,
     .update-form{
         min-width: 250px;
         width: 80%;
@@ -764,16 +776,23 @@ Styling for display on devices less than 1100px width
 
     .header {
         flex-direction: column;
+        display: flex;
+        font-size: 12px;
     }
-
+    
     .nav-logo {
-        width: 100%;
-        justify-content: center;
+        width: 40%;
     }
-
+    
+    .nav-logo label a{
+        font-size: 18px;
+    }
     .nav-menu {
-        flex-direction: column;
-        width: 100%;
+        width: 50%;
+        right: 0;
+    }
+    .nav-menu a{
+        width: 50%;
     }
 
     .main-body {
@@ -781,15 +800,30 @@ Styling for display on devices less than 1100px width
         position: inherit;
     }
 }
-.message {
+.error p, .error{
     color: red;
+    text-align: center;
+}
+.success p, .success{
+    text-shadow: 1px 1px 10px #fff;
+    text-align: center;
+}
+#manage_records{
+    margin-top: 0;
+    margin-left: 26%;
+}
+.labels{
+    text-align: left;
+    font-size: 10px;
+    margin-left: 3%;
+    margin-top: -6%;
+    margin-bottom: -2%;
 }
 /* 
 Styling for footer
 */
 
 footer {
-    bottom: 0;
     padding-top: 1%;
     padding-bottom: 1%;
     text-align: center;
@@ -799,5 +833,5 @@ footer {
     right: 0;
     width: 100%;
     position: fixed;
-    margin-top: 2%;
+    bottom: 0;
 }
