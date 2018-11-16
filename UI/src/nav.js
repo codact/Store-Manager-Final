@@ -5,10 +5,5 @@ if (localStorage.getItem("role") === "true") {
     adminopt.innerHTML = admin;
     let salerecs = document.getElementById("salerecs");
     salerecs.style.display = "none";
-
-    let cart = document.getElementById("cart-icon");
-    if (cart) {
-        cart.style.display = "none";
-    }
 }
 

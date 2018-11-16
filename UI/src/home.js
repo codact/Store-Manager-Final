@@ -23,6 +23,22 @@ window.onload = function getProducts(e) {
         });
 };
 
+let cart_items = document.getElementById("cart");
+function openCart() {
+    cart_items.style.display = "block";
+    document.getElementById("clos").onclick =
+                function closeDetails() {
+                    cart_items.style.display = "none";
+                }
+
+    //function to close modal if a person clicks outside its main body
+    window.onclick = function (event) {
+        if (event.target === cart_items) {
+            cart_items.style.display = "none";
+        }
+    }
+}
+
 //variables to get all html elements by their id
 let details = document.getElementById("description");
 

@@ -26,9 +26,6 @@
             <div class="nav-menu">
                 <ul>
                     <li><a href="dashboard.html">Dashboard&nbsp;<i class="fa fa-home"></i></a></li>
-                    <li><a href="manage_users.html" class="current">Attendants&nbsp;<i class="fa fa-user"></i></a></li>
-                    <li><a href="manage_products.html">Products&nbsp;<i class="fa fa-shopping-bag"></i></a></li>
-                    <li><a href="manage_records.html">Records&nbsp;<i class="fa fa-database"></i></a></li>
                     <li><a style="cursor:pointer;" id="logoutadmin">Logout&nbsp;<i class="fa fa-sign-out-alt"></i></a></li>
                 </ul>
             </div>
@@ -37,17 +34,24 @@
 
     <div class="main-container">
         <div class="add">
-            <button id="signup" onclick="openSignupForm()" class="button">Add User&nbsp;</button>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Non impedit omnis libero nostrum vitae debitis tempore
-                eos obcaecati dignissimos, ex ad
-                dicta magnam odio possimus reprehenderit corporis dolorem tempora quia.
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet,
-                quae dicta
-            </p>
+            <ul>
+                <li>
+                    <button onclick="openSignupForm()" class="button">Add user&nbsp;&nbsp;&nbsp;<i class="fa fa-plus"></i></button>
+                </li>
+                <li>
+                    <a href="manage_users.html"><button class="current button">Attendants&nbsp;&nbsp;&nbsp;<i class="fa fa-user"></i></button></a>
+                </li>
+                <li>
+                    <a href="manage_products.html"> <button class="button">Products&nbsp;&nbsp;&nbsp;<i class="fa fa-shopping-bag"></i></button></a>
+                </li>
+                <li>
+                    <a href="manage_records.html"><button class="button">Records&nbsp;&nbsp;&nbsp;<i class="fa fa-database"></i></button></a>
+                </li>
+            </ul>
+
         </div>
+
         <div class="user-menu" id="usermenu">
-            <a href="dashboard.html"><i class="fa fa-arrow-left"></i></a>
             <div class="users">
                 <h1>Store Attendants</h1>
                 <table id="usersrows" class="users-table">
@@ -55,19 +59,22 @@
                 </table>
             </div>
         </div>
-
-        <div class="signup-section">
+        <div class="signupsection" id="signup-section">
             <form class="signup-form" id="signupfrm">
+                <h1><span id="closeDetails" class="close">&times;</span></h1>
                 <h1>Register Here</h1>
-                <div id="message" style="color:red;"></div><br>
-                <input id="email" type="text" placeholder="Email"><br>
-                <input id="password" type="password" placeholder="Password"><br>
-                <input id="password2" type="password" placeholder="Re-enter Password"><br><br>
-                Is user admin?
+                <label id="message" class="error"></label>
+                <h2 class="labels">Email</h2>
+                <input id="email" type="text">
+                <h2 class="labels">Password</h2>
+                <input id="password" type="password">
+                <h2 class="labels">Re-type password</h2>
+                <input id="password2" type="password"><br><br>
+                &nbsp;&nbsp;&nbsp;Is user admin?
                 <select id="role">
                     <option>true</option>
                     <option selected>false</option>
-                </select><br><br><br>
+                </select><br><br>
                 <button type="submit" class="button">SignUp</button><br><br><br>
             </form>
         </div>

@@ -23,23 +23,34 @@
             <div class="nav-logo">
                 <label><a href="dashboard.html"><i class="fa fa-american-sign-language-interpreting"></i>&nbsp;StoreManager</a></label>
             </div>
+            <div class="search" id="att">
+                <input type="search" id="input" onkeyup="searchSale()" placeholder="Enter the user email you want to filter sales for" /><br><br>
+            </div>
             <div class="nav-menu">
                 <ul>
                     <li><a href="dashboard.html">Dashboard&nbsp;<i class="fa fa-home"></i></a></li>
-                    <li><a href="manage_users.html">Attendants&nbsp;<i class="fa fa-user"></i></a></li>
-                    <li><a href="manage_products.html">Products&nbsp;<i class="fa fa-shopping-bag"></i></a></li>
-                    <li><a href="manage_records.html" class="current">Records&nbsp;<i class="fa fa-database"></i></a></li>
                     <li><a style="cursor:pointer;" id="logoutadmin">Logout&nbsp;<i class="fa fa-sign-out-alt"></i></a></li>
                 </ul>
             </div>
         </div>
     </header>
-    <div class="main-sec">
-        <a href="dashboard.html"><i class="fa fa-arrow-left"></i></a>
-        <div class="search" id="att">
-            <input type="search" id="input" onkeyup="searchSale()" placeholder="Enter the user email you want to filter sales for" /><br><br>
+
+    <div class="main-container">
+        <div class="add">
+            <ul>
+                <li>
+                    <a href="manage_users.html"><button class="button">Attendants&nbsp;&nbsp;&nbsp;<i class="fa fa-user"></i></button></a>
+                </li>
+                <li>
+                    <a href="manage_products.html"> <button class="current button">Products&nbsp;&nbsp;&nbsp;<i class="fa fa-shopping-bag"></i></button></a>
+                </li>
+                <li>
+                    <a href="manage_records.html"><button class="button">Records&nbsp;&nbsp;&nbsp;<i class="fa fa-database"></i></button></a>
+                </li>
+            </ul>
+
         </div>
-        <div class="records">
+        <div class="records" id="manage_records">
             <h1>Attendant Records</h1>
             <table class="records-table" id="attrecords">
 

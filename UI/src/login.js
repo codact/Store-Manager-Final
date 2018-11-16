@@ -5,6 +5,7 @@ loginform.onsubmit = function loginUser(e) {
 
     let email = document.getElementById("eml").value;
     let password = document.getElementById("pwd").value;
+    let message = document.getElementById("message");
 
     e.preventDefault();
 
@@ -21,9 +22,10 @@ loginform.onsubmit = function loginUser(e) {
     })
         .then((res) => res.json())
         .then((data) => {
-            document.getElementsByClassName("message")[0].innerHTML =
-                `<p>${data.message || data.Message}</p>`;
             if (data.message === "Login success") {
+                message.className = "success";
+                message.innerHTML =
+                    `<p>${data.message}</p>`;
                 localStorage.setItem("token", data.token);
                 fetch("https://store-manager-app.herokuapp.com/api/v2/users", {
                     headers: {
@@ -40,6 +42,12 @@ loginform.onsubmit = function loginUser(e) {
                             }
                         });
                     })
+            }
+            else{
+                message.className = "error";
+                console.log(message)
+                message.innerHTML =
+                    `<p>${data.message || data.Message}</p>`;
             }
         })
 }
