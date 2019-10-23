@@ -7,7 +7,7 @@
 This is the complete store manager application 
 
 ## Access the website here
-<https://codact.github.io/Store-Manager-Final/UI/>
+<https://dev-jey.github.io/Store-Manager-Final/UI/>
 
 ## To login, use the default admin credentials
 
